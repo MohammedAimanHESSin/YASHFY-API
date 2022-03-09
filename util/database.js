@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
-
-const sequelize = new Sequelize('node-complete', 'root', 'nodecomplete', {
+//username: root
+//password: root
+const sequelize = new Sequelize('yashfy-database', 'root', 'root', {
   dialect: 'mysql',
   host: 'localhost'
 });
