@@ -1,18 +1,18 @@
 # YASHFY-API
-API for intelligent healthcare system made in Node.Js
+API for intelligent healthcare system made in **Node.Js & Express & Sequelize(mysql)**
 
-## EndPoints
+## *EndPoints*
 ### Doctor
-- sign-up doctor: 
+- **sign-up doctor**: 
   URL: PUT [/auth/doctor-signup?addQualification=(true)]
   
-- log-in doctor:
+- **log-in docto**r:
   URL: POST [/auth/doctor-login]
   
-- add Qulaification(s) to doctor [Auth is needed]
+- **add Qulaification(s) to doctor** [Auth is needed]
   URL:  POST [/doctors/add-qualification]
   
-- getSingleDoctor [DO NOT Need Auth] | we can make at start a guest auth vaild forever stacked with Front
+- **getSingleDoctor** [DO NOT Need Auth] | we can make at start a guest auth vaild forever stacked with Front
   URL:  GET[/doctors/:doctorId]
   
 ### Patient
@@ -21,7 +21,7 @@ API for intelligent healthcare system made in Node.Js
 -
 -
   
-## Database Design
+## *Database Design*
 
 -
 -
