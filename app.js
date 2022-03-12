@@ -2,23 +2,44 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./util/database');
 
+// routes handlers requireing
+const doctorAuthRoutes = require('./routes/doctorAuth')
+const doctorRoutes = require('./routes/doctor')
+
+//Models requireing
+const Doctor = require('./models/doctor');
+const Qualification = require('./models/qualification');
+
+//Models relations
+Qualification.belongsTo(Doctor, { constraints: true, onDelete: 'CASCADE' });
+Doctor.hasMany(Qualification);
+
+//Handling routes
 const app = express();
 app.use(bodyParser.json()); // application/json
 
+ //setteing needed headears
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
-//dummy to start the server
-app.use('/', (req,res,next)=>{
-    console.log('Start Server')
+app.use('/auth',doctorAuthRoutes)
+app.use('/doctors',doctorRoutes)
+
+ //Handling Throwed needed headears
+app.use((error, req, res, next) => {
+  console.log(error);
+  const status = error.statusCode || 500;
+  const message = error.message;
+  const data = error.data;
+  res.status(status).json({ message: message, data: data });
 });
 
-sequelize
-  // .sync({ force: true })
+ sequelize 
   .sync()
+  //.sync({ force: true })
   .then(result => {
     app.listen(8080);
   })
