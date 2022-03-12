@@ -1,0 +1,104 @@
+sign-up doctor:
+URL: PUT [/auth/doctor-signup?addQualification=(true)]
+----------------
+request:
+Body:
+{
+    "first_name": "mohamed",
+    "last_name":"ayman",
+    "email":"mohammedaymen@ymail.com",
+    "username":"mohammed-aymen",
+    "password":"20mohammed-aymen",
+    "city":"alexandria",
+    "specialization":"optomology",
+    "consultaion_fee":200,
+    "date_of_birth":"2012-01-01",
+    "region":"Montzahh"
+	/* add qulas if attached*/
+}
+----------------
+response:
+Body:
+{
+ message: 'Doctor created!',
+ doctor_id: createdDoctor.id 
+}
+
+
+/*****************************************************/
+log-in doctor:
+URL: POST [/auth/doctor-login]
+----------------
+request:
+Body:
+{ 
+"email":"mohammedaymen@ymail.com",
+"password":"20mohammed-aymen"
+}
+----------------
+response:
+Body:
+{ 
+token: createdToken, // Valid for 1-hour | token body: {email: semail, userId: searchedDoctor.id}
+userId: userId
+}
+
+
+/*****************************************************/
+Add Qulaification(s) to doctor [Auth is needed]
+URL:  POST [/doctors/add-qualification]
+----------------
+
+request:
+Body:
+{ 
+"qualifications":
+[{"qualification_name":"PHD.","institute_name":"Alexandria University","procurement_year":"1990-10-28"},
+{"qualification_name":"Master.","institute_name":"Cairo University","procurement_year":"2000-10-28"}]
+}
+
+Headers:
+{
+Authorization: Bearer [token]
+}
+----------------
+
+response:
+Body:
+{ message: 'Qualfication aded Successfully!'
+, doctor_id: id  }
+
+/*****************************************************/
+getSingleDoctor [DO NOT Need Auth] | we can make at start a guest auth vaild forever stacked with Front
+URL:  GET[/doctors/:doctorId]
+----------------
+
+response:
+Body:	// you need to hide un-needed data
+{
+    "message": "Doctor fetched.",
+    "doctor": {
+        "id": 2,
+        "first_name": "yousef",
+        "last_name": "sherif",
+        "username": "yousef-sheri",
+        "password": "$2a$12$6nQvFmiHkZgPDhtfFUX0zujOGwuXBhjVpY4owaKeIQm9P6yAm6MgG",
+        "email": "yousef@ymail.com",
+        "waiting_time": null,
+        "consultaion_fee": 300,
+        "city": "alexandria",
+        "region": "sidi bishr",
+        "date_of_birth": "2012-01-01T00:00:00.000Z",
+        "specialization": "optomology",
+        "age": 0,
+        "createdAt": "2022-03-12T17:04:59.000Z",
+        "updatedAt": "2022-03-12T17:04:59.000Z"
+    }
+}
+/*****************************************************/
+
+
+
+
+
+
