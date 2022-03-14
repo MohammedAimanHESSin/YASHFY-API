@@ -97,7 +97,34 @@ Body:	// you need to hide un-needed data
 }
 /*****************************************************/
 
+sign-up patient:
+URL: PUT [ /patient/auth/patient-signup ]
+----------------
+request:
+Body:
+{
+    "username": "Malek",
+    "email": "malek123@gmail.com",
+    "password": "malek123456",
+    "first_name": "malek",
+    "last_name": "sayed",
+    "phone_number": "01205538058",
+    "date_of_birth": "2022-03-14",
+    "age": "25",
+    "street_address": "15 Mohamed Nageeb",
+    "city": "Alexandria",
+    "country": "Egypt"
+}
+----------------
+response:
+Body:
+{
+ message: 'Patient Added!',
+ patient: patient 
+}
 
+
+/*****************************************************/
 
 
 
