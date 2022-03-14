@@ -1,5 +1,10 @@
+# Introduction 
+we introduce **YASHFY Intelligent Healthcare System**, a health care application that makes both the doctor’s and patient’s life easier.
+
 # YASHFY-API
-API for intelligent healthcare system made in **Node.Js & Express & Sequelize(mysql)**
+API for intelligent healthcare system made in **Node.Js & Express & Sequelize(mysql)**, 
+- implemnting both server side validation and authentication
+- encrypting passwords in our database
 
 ## *EndPoints*
 ### Doctor
