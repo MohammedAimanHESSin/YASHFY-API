@@ -5,7 +5,8 @@ const jwt = require('jsonwebtoken');
 ////used Models
 const Doctor = require('../models/doctor');
 const Qualification = require('../models/qualification')
-
+const Hospital = require('../models/hospital');
+const Doctor_phone_number = require('../models/doctor_phone_number');
 
 exports.signup =async (req, res, next) => {
     const errors = validationResult(req);
@@ -47,10 +48,7 @@ exports.signup =async (req, res, next) => {
             specialization: specialization ,
             age: 0 })
 
-      // add qulaificayions to the doctor if attached
-        if (req.query.addQualification === "true")
-        {
-          
+        // add Hospital to the doctor
           let qulas = req.body.qualifications
           if (!qulas) {
             const error = new Error('No Added Qualifications !');
@@ -68,10 +66,21 @@ exports.signup =async (req, res, next) => {
               })
               qualificationsList.push(createdQualification)
           }
-        const doctowithqulais= await createdDoctor.addQualifications(qualificationsList)
+      let finalDoctorInfo= await createdDoctor.addQualifications(qualificationsList)        
+      // add Hospital to the doctor if attached
+      if (req.query.addHospital === "true")
+      {
+          const hospital_id = parseInt(req.body.hospital_id)
+          const searchedHospital = await Hospital.findOne({
+            where: {
+              id: hospital_id
+            }
+          });
+      
+         finalDoctorInfo= await finalDoctorInfo.setHospital(searchedHospital)
         }
      // send back done response
-    res.status(201).json({ message: 'Doctor created!', doctor_id: createdDoctor.id });
+    res.status(201).json({ message: 'Doctor created!', doctor_id: finalDoctorInfo.id });
         }
         catch(err)
          {
@@ -129,8 +138,47 @@ exports.login = async (req, res, next) => {
 }
 
 
-exports.getDoctor = async (req, res, next) => {
-  const doctorId = parseInt(req.params.doctorId);
+exports.addQualificatin = async (req, res, next) => {
+  let doctorId = parseInt(req.userId)
+
+  const selectedDoctor = await Doctor.findOne({ where: {id: doctorId} })
+  if (!selectedDoctor) {
+    const error = new Error('Could not find Doctor.');
+    error.statusCode = 404;
+    throw error;
+  }
+  try{
+  let qulas = req.body.qualifications
+  let qualificationsList=[]
+  for (let i=0;i<qulas.length; i++ )
+  {
+    let createdQualification= await Qualification.create(
+      {
+        qualification_name: qulas[i].qualification_name,
+        institute_name: qulas[i].institute_name,
+        procurement_year:qulas[i].procurement_year
+      })
+      qualificationsList.push(createdQualification)
+  }
+  const doctorWithQulaisAdded =  await selectedDoctor.addQualifications(qualificationsList)
+  
+      // send back done response
+    res.status(201).json(
+      { message: 'Qualfication aded Successfully!', doctor_id: doctorWithQulaisAdded.id  });
+    }
+    catch(err)
+  {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+}
+
+
+exports.getDoctorProfile = async (req, res, next)=>{
+
+  const doctorId = parseInt(req.userId);
   try{
   const selectedDoctor = await Doctor.findOne(
     { where: {id: doctorId} })
@@ -149,14 +197,63 @@ exports.getDoctor = async (req, res, next) => {
     }
     next(err);
   }
+
 }
 
 
-exports.addQualificatin = async (req, res, next) => {
+exports.editDoctorProfile = async (req,res,next) => {
+  const doctorId = parseInt(req.userId);
+  try{
+    const selectedDoctor = await Doctor.findOne(
+      { where: {id: doctorId} })
+  
+    if (!selectedDoctor) {
+      const error = new Error('Could not find Doctor.');
+      error.statusCode = 404;
+      throw error;
+    }
+
+    //extract body data
+    const new_email = req.body.email;
+    const new_first_name = req.body.first_name;
+    const new_last_name = req.body.last_name;
+    const new_username = req.body.username;
+    const new_waiting_time = req.body.waiting_time;
+    const new_consultaion_fee = req.body.consultaion_fee;
+    const new_city = req.body.city;
+    const new_region = req.body.region;
+    const new_date_of_birth = req.body.date_of_birth;
+    const new_specialization = req.body.specialization;
+
+    selectedDoctor.set({
+            email:new_email,
+            first_name: new_first_name ,
+            last_name: new_last_name ,
+            username: new_username ,
+            waiting_time: new_waiting_time ,
+            consultaion_fee: new_consultaion_fee ,
+            city: new_city ,
+            region: new_region ,
+            date_of_birth: new_date_of_birth ,
+            specialization: new_specialization 
+    });
+    // update the database 
+    const updatedDoctor = await selectedDoctor.save()
+     // send back done response
+     res.status(201).json({ message: 'Doctor Info is UPDATED !', doctor_id: updatedDoctor.id });
+  }catch(err)
+  {
+ if (!err.statusCode) 
+ {
+   err.statusCode = 500;
+ }
+ next(err);
+ }
+}
+
+
+exports.addPhoneNumber = async (req, res, next) => { 
   let doctorId = parseInt(req.userId)
-  const qualification_name = req.body.qualification_name;
-  const institute_name = req.body.institute_name;
-  const procurement_year = req.body.procurement_year;
 
   const selectedDoctor = await Doctor.findOne({ where: {id: doctorId} })
   if (!selectedDoctor) {
@@ -164,22 +261,29 @@ exports.addQualificatin = async (req, res, next) => {
     error.statusCode = 404;
     throw error;
   }
-
-  let qulas = req.body.qualifications
-  let qualificationsList=[]
-  for (let i=0;i<req.body.qualifications.length; i++ )
+  try{
+  let phone_nums = req.body.phone_nums
+  let phone_numsList=[]
+  for (let i=0;i<phone_nums.length; i++ )
   {
-    let createdQualification= await Qualification.create(
+    let createdPhoneNum= await Doctor_phone_number.create(
       {
-        qualification_name: qulas[i].qualification_name,
-        institute_name: qulas[i].institute_name,
-        procurement_year:qulas[i].procurement_year
+        phone_num: phone_nums[i].phone_num,
       })
-      qualificationsList.push(createdQualification)
+      phone_numsList.push(createdPhoneNum)
   }
-  const doctorWithQulaisAdded =  await selectedDoctor.addQualifications(qualificationsList)
+  const doctorWithphone_numsListAdded =  await selectedDoctor.addDoctor_phone_numbers(phone_numsList)
+
   
       // send back done response
     res.status(201).json(
-      { message: 'Qualfication aded Successfully!', doctor_id: selectedDoctor.id  });
+      { message: 'Phone Nums aded Successfully!', doctor_id: doctorWithphone_numsListAdded.id  });
+    }
+    catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    }
 }

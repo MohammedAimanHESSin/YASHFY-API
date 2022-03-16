@@ -4,11 +4,17 @@ const isAuth = require('../middleware/is-auth');
 
 const router = express.Router();
 
-//GET: /
+//:  /doctors/....
 
 router.post('/add-qualification',isAuth , doctorController.addQualificatin)
 
-router.get('/:doctorId', doctorController.getDoctor)
+router.post('/add-phone-num',isAuth , doctorController.addPhoneNumber)
+
+router.get('/profile',isAuth , doctorController.getDoctorProfile)
+
+router.patch('/edit-profile',isAuth , doctorController.editDoctorProfile)
+
+
 
 
 module.exports = router;

@@ -5,14 +5,24 @@ const sequelize = require('./util/database');
 // routes handlers requireing
 const doctorAuthRoutes = require('./routes/doctorAuth')
 const doctorRoutes = require('./routes/doctor')
+const guestRoutes = require('./routes/guest')
+
 
 //Models requireing
 const Doctor = require('./models/doctor');
 const Qualification = require('./models/qualification');
+const Hospital = require('./models/hospital');
+const Doctor_phone_number = require('./models/doctor_phone_number');
 
 //Models relations
 Qualification.belongsTo(Doctor, { constraints: true, onDelete: 'CASCADE' });
 Doctor.hasMany(Qualification);
+
+Doctor.belongsTo(Hospital, { constraints: true});
+Hospital.hasMany(Doctor);
+
+Doctor_phone_number.belongsTo(Doctor, { constraints: true,  onDelete: 'CASCADE' });
+Doctor.hasMany(Doctor_phone_number);
 
 //Handling routes
 const app = express();
@@ -27,6 +37,8 @@ app.use((req, res, next) => {
 });
 app.use('/auth',doctorAuthRoutes)
 app.use('/doctors',doctorRoutes)
+app.use('/guest',guestRoutes)
+
 
  //Handling Throwed needed headears
 app.use((error, req, res, next) => {
