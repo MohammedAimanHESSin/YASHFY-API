@@ -1,5 +1,5 @@
 sign-up doctor:
-URL: PUT [/auth/doctor-signup?addQualification=(true)]
+URL: PUT [/auth/doctor-signup]
 ----------------
 request:
 Body:
@@ -13,8 +13,10 @@ Body:
     "specialization":"optomology",
     "consultaion_fee":200,
     "date_of_birth":"2012-01-01",
-    "region":"Montzahh"
-	/* add qulas if attached*/
+    "region":"Montzahh",
+    "qualifications":
+[{"qualification_name":"PHD.","institute_name":"Alexandria University","procurement_year":"1990-10-28"},
+{"qualification_name":"Master.","institute_name":"Cairo University","procurement_year":"2000-10-28"}]
 }
 ----------------
 response:
@@ -69,8 +71,94 @@ Body:
 , doctor_id: id  }
 
 /*****************************************************/
+getDoctorProfile [Need Auth] 
+URL:  GET[/doctors/profile]
+----------------
+
+response:
+Body:	// you need to hide un-needed data
+{
+    "message": "Doctor fetched.",
+    "doctor": {
+        "id": 1,
+        "first_name": "mohamed",
+        "last_name": "ayman",
+        "username": "mohammed-aymen",
+        "password": "$2a$12$XrS/zuffvhkxZMPZS/SxMOBWC5f667je9yok1oD5LJNQ0q24leeZ.",
+        "email": "osama_sherif@ymail.com",
+        "waiting_time": 30,
+        "consultaion_fee": 200,
+        "city": "alexandria",
+        "region": "Montzahh",
+        "date_of_birth": "1969-09-09T00:00:00.000Z",
+        "specialization": "optomology",
+        "age": 0,
+        "createdAt": "2022-03-16T15:49:20.000Z",
+        "updatedAt": "2022-03-16T15:49:20.000Z",
+        "hospitalId": null
+    }
+}
+
+/*****************************************************/
+
+Add PhoneNum(s) to doctor [Auth is needed]
+URL:  POST [/doctors/add-phone-num]
+----------------
+
+request:
+Body:
+{
+"phone_nums":
+    [{"phone_num": "01203538222"},{"phone_num": "01203835288"},{"phone_num": "01019620549"},{"phone_num": "01220055689"}]
+}
+
+Headers:
+{
+Authorization: Bearer [token]
+}
+----------------
+
+response:
+Body:
+{ message: 'Phone Nums aded Successfully!'
+, doctor_id: id  }
+
+/*****************************************************/
+
+editProfile to doctor [Auth is needed]
+URL:  PATCH [doctors/edit-profile]
+----------------
+
+request:
+Body:
+{
+    "first_name": "ahmed",
+    "last_name":"ayman",
+    "email":"mahmoud@ymail.com",
+    "username":"mohammed-aymen",
+    "city":"Cairo",
+    "specialization":"optomology",
+    "consultaion_fee":200,
+    "date_of_birth":"2012-01-01",
+    "region":"Helwaaaan"
+}
+
+Headers:
+{
+Authorization: Bearer [token]
+}
+----------------
+
+response:
+Body:
+{ message:  'Doctor Info is UPDATED !'
+, doctor_id: id  }
+
+
+/*****************************************************/
+/*****************************************************/
 getSingleDoctor [DO NOT Need Auth] | we can make at start a guest auth vaild forever stacked with Front
-URL:  GET[/doctors/:doctorId]
+URL:  GET[/guest/doctors/:doctorId]
 ----------------
 
 response:
@@ -97,7 +185,63 @@ Body:	// you need to hide un-needed data
 }
 /*****************************************************/
 
+getHospitals [DO NOT Need Auth] 
+URL:  GET[/guest/hospitals]
+----------------
 
+response:
+Body:	// you need to hide un-needed data
+{
+    "message": "hospitals fetched.",
+    "Hospitals": [
+        {
+            "id": 1,
+            "hospital_name": "El Fadilaa",
+            "doctors_num": 25,
+            "specialities_num": 33,
+            "createdAt": "2022-03-16T15:49:20.000Z",
+            "updatedAt": "2022-03-16T15:49:20.000Z"
+        },
+        {
+            "id": 2,
+            "hospital_name": "MAdinat Hospitals",
+            "doctors_num": 24,
+            "specialities_num": 200,
+            "createdAt": "2022-03-16T15:49:20.000Z",
+            "updatedAt": "2022-03-16T15:49:20.000Z"
+        }
+    ]
+}
+/*****************************************************/
+
+sign-up patient:
+URL: PUT [ /patient/auth/patient-signup ]
+----------------
+request:
+Body:
+{
+    "username": "Malek",
+    "email": "malek123@gmail.com",
+    "password": "malek123456",
+    "first_name": "malek",
+    "last_name": "sayed",
+    "phone_number": "01205538058",
+    "date_of_birth": "2022-03-14",
+    "age": "25",
+    "street_address": "15 Mohamed Nageeb",
+    "city": "Alexandria",
+    "country": "Egypt"
+}
+----------------
+response:
+Body:
+{
+ message: 'Patient Added!',
+ patient: patient 
+}
+
+
+/*****************************************************/
 
 
 

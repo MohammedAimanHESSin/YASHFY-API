@@ -28,4 +28,4 @@ if (!decodedToken) {
 
 req.userId = decodedToken.userId;
 next();
-}
+};
