@@ -20,7 +20,7 @@ router.put('/patient-signup', [
     })
     .normalizeEmail(),
     body('password').trim()
-                    .isLength({min: 5}),
+                    .isLength({min: 8}),
     body('username').trim()
                     .not()
                     .isEmpty()

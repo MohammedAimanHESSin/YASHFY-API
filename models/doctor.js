@@ -2,7 +2,7 @@ const Sequelize  = require('sequelize') // require 3rd party lib
 
  const sequelize = require('../util/database') // require initiated the connection
 
- const Doctor = sequelize.define('doctor-clinic',{
+ const Doctor = sequelize.define('doctor',{
    id:{
    type:Sequelize.INTEGER,
    autoIncrement: true,
@@ -25,7 +25,7 @@ const Sequelize  = require('sequelize') // require 3rd party lib
    type: Sequelize.STRING
    },
    waiting_time:{
-   type: Sequelize.INTEGER
+   type: Sequelize.STRING
    },
    consultaion_fee:{
    type: Sequelize.INTEGER
