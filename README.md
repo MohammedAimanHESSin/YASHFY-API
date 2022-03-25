@@ -28,6 +28,4 @@ API for intelligent healthcare system made in **Node.Js & Express & Sequelize(my
   
 ## *Database Design*
 
--
--
-
+![This is an image](https://github.com/MohammedAimanHESSin/YASHFY-API/blob/master/Database-Files/Relational_model.png)
