@@ -34,10 +34,10 @@ We introduce **YASHFY Intelligent Healthcare System**, a health care application
 You can run the API locally on your machine by following below steps:
 1. Clone the repo or just download it. 
 2. Open the project in any editor (VS code is recommended).
-3. Open terminal in the project path cd /...../YASHFY-API.
-4. run command: <<npm install>> to inastall all appropriate dependencies.
+3. Open terminal in the project path ```cd /...../YASHFY-API```.
+4. run command: ```npm install``` to inastall all appropriate dependencies.
 5. You should now install mysql database workbench to handel DB requests and load on it our data.
-6. Last thing to run command: <<npm start>>, and now your server is running and listenning on port [8080]. (you can change the port num from app.js file)
+6. Last thing to run command: ```npm start```, and now your server is running and listenning on port [8080]. (you can change the port num from app.js file)
   
 
 ## *Authors*
