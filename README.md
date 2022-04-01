@@ -37,7 +37,7 @@ You can run the API locally on your machine by following below steps:
 3. Open terminal in the project path ```cd /...../YASHFY-API```.
 4. run command: ```npm install``` to inastall all appropriate dependencies.
 5. You should now install mysql database workbench to handel DB requests and load on it our data.
-6. Last thing to run command: ```npm start```, and now your server is running and listenning on port [8080]. (you can change the port num from app.js file)
+6. Last thing to run command: ```npm npm run start:dev```, and now your server is running and listenning on port [8080]. (you can change the port num from app.js file)
   
 
 ## *Authors*
