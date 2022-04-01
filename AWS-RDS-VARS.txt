@@ -1,0 +1,4 @@
+database-instance: database-yashfy
+username: admin
+password: adminadmin
+host: database-yashfy.cvciaquomdgi.us-east-1.rds.amazonaws.com

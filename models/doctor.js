@@ -22,10 +22,11 @@ const Sequelize  = require('sequelize') // require 3rd party lib
    type: Sequelize.STRING
    },
    email:{
-   type: Sequelize.STRING
+   type: Sequelize.STRING, unique: true
    },
    waiting_time:{
-   type: Sequelize.STRING
+   type: Sequelize.STRING,
+   defaultValue: 0
    },
    consultaion_fee:{
    type: Sequelize.INTEGER
@@ -44,8 +45,33 @@ const Sequelize  = require('sequelize') // require 3rd party lib
    },
    age:{
    type: Sequelize.INTEGER
-   }
- })
+   },catgs_Clinic: {
+    type: Sequelize.TINYINT,
+    defaultValue: 0
+  },catgs_doctor_treatment
+  : {
+    type: Sequelize.TINYINT,
+    defaultValue: 0
+  },catgs_staff: {
+    type: Sequelize.TINYINT,
+    defaultValue: 0
+  },catgs_waiting_time  : {
+    type: Sequelize.TINYINT,
+    defaultValue: 0
+  },catgs_equipment: {
+    type: Sequelize.TINYINT,
+    defaultValue: 0
+  },catgs_price: {
+    type: Sequelize.TINYINT
+    ,    defaultValue: 0
+  },catgs_Other: {
+    type: Sequelize.TINYINT,
+    defaultValue: 0
+  },general_rank: {
+    type: Sequelize.TINYINT,
+    defaultValue: 0
+  }
+ }, { timestamps: false })
 
  module.exports = Doctor;
 

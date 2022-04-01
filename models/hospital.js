@@ -11,7 +11,7 @@ const Hospital = sequelize.define('hospital', {
     hospital_name: Sequelize.STRING,
     doctors_num: Sequelize.INTEGER,
     specialities_num: Sequelize.INTEGER
-  });
+  }, { timestamps: false });
   
   module.exports = Hospital;
   

@@ -1,0 +1,8 @@
+{
+    "env": {
+        "USERNAME": "root",
+        "PASSWORD": "root",
+        "DATABASE": "yashfy-database",
+        "HOST": "localhost"
+    }
+}

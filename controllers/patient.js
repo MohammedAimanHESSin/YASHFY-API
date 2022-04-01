@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const Appointment = require("../models/appointment");
+const Doctor = require('../models/doctor');
 const Patient = require("../models/patient");
 
 
@@ -42,7 +43,13 @@ exports.addPatient = (req, res, next) => {
                  patient: patient
             });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          if (!err.statusCode) {
+          err.statusCode = 500;
+          err.message="Account ALREADY EXISTS"
+                      }
+        next(err);
+       });
 };
 
 exports.getProfile = (req, res, next) => {
@@ -78,18 +85,39 @@ exports.updateProfile = (req, res, next) => {
         .catch( err => console.log(err));
 };
 
-exports.bookAppointment = (req, res, next) => {
+exports.bookAppointment = async (req, res, next) => {
     const start_time = req.body.start_time;
+    const appointment_date = req.body.appointment_date;
+    const doctor_id = req.body.doctor_id
     const patientId = req.userId;
-    
-    Patient.findByPk(patientId)
-           .then(patient => {
-                 patient.createAppointment({
-                 start_time: start_time    
-                })
-                res.status(200).json({ message: "Appointment Added!"});
-            })
-            .catch(err => console.log(err));
+   try{
+   const selectedPatient = await  Patient.findByPk(patientId)
+   if (!selectedPatient) {
+    const error = new Error('Could not find Patient.');
+    error.statusCode = 404;
+    throw error;
+  }
+   const appointment = await selectedPatient.createAppointment(
+     {
+    start_time: start_time, appointment_date:  appointment_date,  doctorId: doctor_id, appointmentStatusId: 1
+   })
+
+   if (!appointment) {
+    const error = new Error('Could not Add Appointment.');
+    error.statusCode = 404;
+    throw error;
+  }           
+  res.status(200).json({ message: "Appointment Added Successfully !"});
+    }
+    catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message="Duplicate Appointments!!"
+      next(err);
+    }
+  
 };
 
 exports.getAppointments = (req, res, next) => {
@@ -135,5 +163,116 @@ exports.patientLogin = (req, res, next) => {
              );
              res.status(200).json({token: token, userId: loadedPatient.id.toString() });
            })
-           .catch(err => console.log(err));
+           .catch(err => {
+              if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+           });
 };
+
+exports.cancelPatientAppointment = async (req, res, next)=>{
+
+    // Should notify patient!!
+    try{
+      const patientID = parseInt(req.userId)
+      const AppointmentId = parseInt(req.body.AppointmentId)
+  
+      selectedAppointment = await Appointment.findByPk(AppointmentId)
+  
+      if (!selectedAppointment) {
+        const error = new Error('An Appointment with this ID could not be found.');
+        error.statusCode = 401;
+        throw error;
+      }
+      console.log(selectedAppointment.patientId)
+      if (selectedAppointment.patientId !== patientID ) {
+        const error = new Error('Invalid selected Appointment');
+        error.statusCode = 401;
+        throw error;
+      }
+      // WHAT IF ALREADY CANCELD ***
+      selectedAppointment.set(
+          {
+            appointmentStatusId: 3 //Canceled 
+          }
+      )
+      await selectedAppointment.save()
+  
+      // MUST ADDD await notify patient (webSocket)***
+  
+      res.status(200).json({ message: 'Appointments canceld Successfully !.', appointments: selectedAppointment });
+    
+    
+    }
+    catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    }
+  }
+  
+exports.makeReview = async (req,res,next)=> {
+
+    const patientId = parseInt(req.userId)
+    const review = req.body.review
+    const is_review_annoymous = req.body.is_review_annoymous // ** when show it hide the user name!
+    const doctorId = req.body.doctorId
+
+    try{
+      const selectedPatient = await Patient.findByPk(patientId)
+
+      if(!selectedPatient)
+      {
+        const err = new Error("NO SUCH PATIENT")
+        error.statusCode = 404;
+        throw error;
+      }
+
+      // ** You should verify That Appointment with this doctor exists and its status is COMPLETE !! before Add the review
+      
+      const newReview = await selectedPatient.createReview( {
+        is_review_annoymous:  is_review_annoymous,
+        review: review  ,
+        doctorId:  doctorId
+      })
+
+      // ** CALL ML API TO Assigne polarities and update Doctor Categories !
+      const selectedDoctor = await Doctor.findByPk(doctorId)
+
+      if(!selectedDoctor)
+      {
+        const err = new Error("NO SUCH DOCTOR")
+        error.statusCode = 404;
+        throw error;
+      }
+     
+      // set doctor Catgs here ....
+      ```
+      selectedDoctor.set({
+        catgs_Clinic:,
+        catgs_doctor_treatment:  ,
+        catgs_staff:  ,
+        catgs_waiting_time:  ,
+        catgs_equipment:  ,
+        catgs_price:  ,
+        catgs_Other:  ,
+        general_rank:  
+        });
+      // update the database 
+      const updatedDoctor = await selectedDoctor.save()
+      ```
+      res.status(201).json(
+        { message: "Review is Added Successfully !", doctorId: newReview.doctorId, patientId: patientId  });
+    }
+    catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message = "ERROR: Review Not ADDDD ..";
+      next(err);
+    }
+  }
