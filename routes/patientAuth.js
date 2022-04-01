@@ -9,22 +9,25 @@ const patientController = require('../controllers/patient');
 
 router.put('/patient-signup', [
     body('email')
-    .isEmail()
-    .withMessage('Please enter a valid email')
-    .custom((value, { req  }) => {
-        return Patient.findOne({ email: value }).then(patient => {
-            if(patient){
-                return Promise.reject('E-mail address already exists');
-            }
+      .isEmail()
+      .withMessage('Please enter a valid email.')
+      .custom((value, { req }) => {
+        return Patient.findOne({ where: { email: value} })
+        .then(finded => {
+          if (finded) {
+            return Promise.reject('E-Mail address already exists!');
+          }
         });
-    })
-    .normalizeEmail(),
-    body('password').trim()
-                    .isLength({min: 8}),
-    body('username').trim()
-                    .not()
-                    .isEmpty()
-    ],
+      })
+      .normalizeEmail(),
+      body('password')
+      .trim()
+      .isLength({ min: 8 }),
+    body('username')
+      .trim()
+      .not()
+      .isEmpty()
+  ],
         patientController.addPatient
 );
 

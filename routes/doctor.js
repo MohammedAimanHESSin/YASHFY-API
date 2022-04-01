@@ -14,6 +14,10 @@ router.get('/profile',isAuth , doctorController.getDoctorProfile)
 
 router.patch('/edit-profile',isAuth , doctorController.editDoctorProfile)
 
+router.get('/my-appointments',isAuth , doctorController.getDoctorAppointments)
+
+router.patch('/cancel-appointment',isAuth , doctorController.cancelDoctorAppointment)
+
 
 
 

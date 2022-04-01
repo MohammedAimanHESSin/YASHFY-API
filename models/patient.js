@@ -10,7 +10,7 @@ const Patient = sequelize.define('patient', {
       primaryKey: true
     },
     username: Sequelize.STRING,
-    email: Sequelize.STRING,
+    email: {type: Sequelize.STRING, unique: true },
     password: Sequelize.STRING,
     first_name: Sequelize.STRING,
     last_name: Sequelize.STRING,
@@ -20,6 +20,6 @@ const Patient = sequelize.define('patient', {
     street_address: Sequelize.STRING,
     city: Sequelize.STRING,
     country: Sequelize.STRING,
-});
+}, { timestamps: false } );
 
 module.exports = Patient;

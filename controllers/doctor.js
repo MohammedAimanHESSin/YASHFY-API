@@ -7,6 +7,7 @@ const Doctor = require('../models/doctor');
 const Qualification = require('../models/qualification')
 const Hospital = require('../models/hospital');
 const Doctor_phone_number = require('../models/doctor_phone_number');
+const Appointment = require('../models/appointment');
 
 exports.signup =async (req, res, next) => {
     const errors = validationResult(req);
@@ -88,6 +89,7 @@ exports.signup =async (req, res, next) => {
         {
           err.statusCode = 500;
         }
+        err.message="Account ALREADY EXISTS"
         next(err);
         }
 }
@@ -225,7 +227,7 @@ exports.editDoctorProfile = async (req,res,next) => {
     const new_date_of_birth = req.body.date_of_birth;
     const new_specialization = req.body.specialization;
 
-    selectedDoctor.set({
+   selectedDoctor.set({
             email:new_email,
             first_name: new_first_name ,
             last_name: new_last_name ,
@@ -254,14 +256,13 @@ exports.editDoctorProfile = async (req,res,next) => {
 
 exports.addPhoneNumber = async (req, res, next) => { 
   let doctorId = parseInt(req.userId)
-
+  try{
   const selectedDoctor = await Doctor.findOne({ where: {id: doctorId} })
   if (!selectedDoctor) {
     const error = new Error('Could not find Doctor.');
     error.statusCode = 404;
     throw error;
   }
-  try{
   let phone_nums = req.body.phone_nums
   let phone_numsList=[]
   for (let i=0;i<phone_nums.length; i++ )
@@ -287,3 +288,73 @@ exports.addPhoneNumber = async (req, res, next) => {
       next(err);
     }
 }
+
+
+exports.getDoctorAppointments = async (req, res, next)=>{
+  try{
+    const doctor_id = parseInt(req.userId)
+    selectedDoctor = await Doctor.findByPk(doctor_id)
+    if (!selectedDoctor) {
+      const error = new Error('A Doctor with this ID could not be found.');
+      error.statusCode = 401;
+      throw error;
+    }
+    doctroAppointments = await selectedDoctor.getAppointments()
+    res.status(200).json({ message: 'Appointments fetched.', appointments: doctroAppointments });
+  }
+  catch(err)
+  {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+}
+
+
+
+exports.cancelDoctorAppointment = async (req, res, next)=>{
+
+  // Should notify patient!!
+  try{
+    const doctor_id = parseInt(req.userId)
+    const AppointmentId = parseInt(req.body.AppointmentId)
+
+    selectedAppointment = await Appointment.findByPk(AppointmentId)
+
+    if (!selectedAppointment) {
+      const error = new Error('An Appointment with this ID could not be found.');
+      error.statusCode = 401;
+      throw error;
+    }
+
+    if (selectedAppointment.doctorId !== doctor_id ) {
+      const error = new Error('Invalid selected Appointment');
+      error.statusCode = 401;
+      throw error;
+    }
+
+    selectedAppointment.set(
+        {
+          appointmentStatusId: 3 //Canceled 
+        }
+    )
+    await selectedAppointment.save()
+
+    // await notify patient (webSocket)
+
+    res.status(200).json({ message: 'Appointments canceld Successfully !.', appointments: selectedAppointment });
+  
+  
+  }
+  catch(err)
+  {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+}
+
+
+

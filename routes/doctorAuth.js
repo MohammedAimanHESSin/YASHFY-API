@@ -14,14 +14,6 @@ router.put('/doctor-signup',[
     body('email')
       .isEmail()
       .withMessage('Please enter a valid email.')
-      .custom((value, { req }) => {
-        return Doctor.findOne({ where: { email: value} })
-        .then(findedDoctor => {
-          if (findedDoctor) {
-            return Promise.reject('E-Mail address already exists!');
-          }
-        });
-      })
       .normalizeEmail(),
     body('password')
       .trim()

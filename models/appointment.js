@@ -10,10 +10,20 @@ const Appointment = sequelize.define('appointment', {
       primaryKey: true
     },
     start_time: {
-      type: 'TIMESTAMP',
-      
+      type:Sequelize.TIME, 
     },
-    appointment_date: Sequelize.DATE,
-});
+    appointment_date: Sequelize.DATEONLY  ,
+}
+,{
+  indexes: [
+      {
+          unique: true,
+          fields: ['start_time', 'appointment_date', 'doctorID']
+      }
+  ]
+}
+
+
+);
 
 module.exports = Appointment;

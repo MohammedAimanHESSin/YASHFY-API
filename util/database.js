@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 //username: root
 //password: root
-const sequelize = new Sequelize('yashfy-database', 'root', 'root', {
+const sequelize = new Sequelize(process.env.DATABASE, process.env.USERNAME, process.env.PASSWORD, {
   dialect: 'mysql',
-  host: 'localhost'
+  host: process.env.HOST
 });
 
 module.exports = sequelize;

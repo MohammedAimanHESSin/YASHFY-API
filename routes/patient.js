@@ -15,4 +15,8 @@ router.post('/bookAppointment', isAuth, patientController.bookAppointment);
 
 router.get('/appointments', isAuth, patientController.getAppointments);
 
+router.patch('/cancel-appointment',isAuth , patientController.cancelPatientAppointment)
+
+router.post('/make-review',isAuth , patientController.makeReview)
+
 module.exports = router;
