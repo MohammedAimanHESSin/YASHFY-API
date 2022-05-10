@@ -19,6 +19,9 @@ const Patient = require('./models/patient');
 const Appointment = require('./models/appointment');
 const AppointmentStatus = require('./models/appointment_status');
 const Review = require('./models/review');
+const Doctor_available_slot = require('./models/doctor_available_slot');
+const Insurance = require('./models/insurance');
+const DoctorInsurance = require('./models/doctor_insurance');
 
 //Models relations
 Qualification.belongsTo(Doctor, { constraints: true, onDelete: 'CASCADE' });
@@ -44,6 +47,12 @@ Review.belongsTo(Patient);
 
 Doctor.hasMany(Review);
 Review.belongsTo(Doctor);
+
+Doctor.hasMany(Doctor_available_slot);
+Doctor_available_slot.belongsTo(Doctor);
+
+Doctor.belongsToMany(Insurance, { through:DoctorInsurance });
+Insurance.belongsToMany(Doctor, { through:DoctorInsurance });
 
 //Handling routes
 const app = express();
