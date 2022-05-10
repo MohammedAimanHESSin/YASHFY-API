@@ -32,9 +32,11 @@ exports.getDoctor = async (req, res, next) => {
 exports.getHospitals = async (req, res, next) => {
     try{
     const allHospitals= await Hospital.findAll()
-  
-    if (!allHospitals) {
-      const error = new Error('Could not find Doctor.');
+    
+    if (!allHospitals.length) {
+      console.log("HERE !")
+
+      const error = new Error('Could not find Hospitals.');
       error.statusCode = 404;
       throw error;
     }
