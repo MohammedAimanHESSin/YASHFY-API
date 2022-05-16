@@ -8,6 +8,7 @@ const Qualification = require('../models/qualification')
 const Hospital = require('../models/hospital');
 const Doctor_phone_number = require('../models/doctor_phone_number');
 const Appointment = require('../models/appointment');
+const Doctor_available_slot = require('../models/doctor_available_slot');
 
 exports.signup =async (req, res, next) => {
     const errors = validationResult(req);
@@ -152,9 +153,7 @@ exports.addQualificatin = async (req, res, next) => {
 
   const selectedDoctor = await Doctor.findOne({ where: {id: doctorId} })
   if (!selectedDoctor) {
-    const error = new Error('Could not find Doctor.');
-    error.statusCode = 404;
-    throw error;
+    return res.status(404).json({message: 'Could not find doctor.'});
   }
   try{
   let qulas = req.body.qualifications
@@ -173,7 +172,7 @@ exports.addQualificatin = async (req, res, next) => {
   
       // send back done response
     res.status(201).json(
-      { message: 'Qualfication aded Successfully!', doctor_id: doctorWithQulaisAdded.id  });
+      { message: 'Qualfication added successfully!', doctor_id: doctorWithQulaisAdded.id  });
     }
     catch(err)
   {
@@ -193,9 +192,7 @@ exports.getDoctorProfile = async (req, res, next)=>{
     { where: {id: doctorId} })
 
   if (!selectedDoctor) {
-    const error = new Error('Could not find Doctor.');
-    error.statusCode = 404;
-    throw error;
+    return res.status(404).json({message: 'Could not find doctor'});
   }
   res.status(200).json({ message: 'Doctor fetched.', doctor: selectedDoctor });
   }
@@ -217,9 +214,7 @@ exports.editDoctorProfile = async (req,res,next) => {
       { where: {id: doctorId} })
   
     if (!selectedDoctor) {
-      const error = new Error('Could not find Doctor.');
-      error.statusCode = 404;
-      throw error;
+      return res.status(404).json({message: 'Could not find doctor'});
     }
 
     //extract body data
@@ -266,9 +261,7 @@ exports.addPhoneNumber = async (req, res, next) => {
   try{
   const selectedDoctor = await Doctor.findOne({ where: {id: doctorId} })
   if (!selectedDoctor) {
-    const error = new Error('Could not find Doctor.');
-    error.statusCode = 404;
-    throw error;
+    return res.status(404).json({message: 'Could not find doctor.'});
   }
   let phone_nums = req.body.phone_nums
   let phone_numsList=[]
@@ -302,9 +295,7 @@ exports.getDoctorAppointments = async (req, res, next)=>{
     const doctor_id = parseInt(req.userId)
     selectedDoctor = await Doctor.findByPk(doctor_id)
     if (!selectedDoctor) {
-      const error = new Error('A Doctor with this ID could not be found.');
-      error.statusCode = 401;
-      throw error;
+      return res.status(404).json({message: 'Could not find doctor.'});
     }
     doctroAppointments = await selectedDoctor.getAppointments()
     if (!doctroAppointments.length) {
@@ -335,15 +326,11 @@ exports.cancelDoctorAppointment = async (req, res, next)=>{
     const selectedAppointment = await Appointment.findByPk(AppointmentId)
 
     if (!selectedAppointment) {
-      const error = new Error('An Appointment with this ID could not be found.');
-      error.statusCode = 401;
-      throw error;
+      return res.status(404).json({message: 'An Appointment with this ID could not be found'});
     }
 
     if (selectedAppointment.doctorId !== doctor_id ) {
-      const error = new Error('Invalid selected Appointment');
-      error.statusCode = 401;
-      throw error;
+      return res.status(404).json({message: 'Invalid selected Appointment'});
     }
 
     selectedAppointment.set(
@@ -368,5 +355,153 @@ exports.cancelDoctorAppointment = async (req, res, next)=>{
   }
 }
 
+exports.addSlots = async (req, res, next) => {
+  const doctorId = req.userId;
+  let availableSlots = req.body.availableSlots;
 
+  try {
+  const doctor = await Doctor.findByPk(doctorId)
+        if(!doctor){
+            return res.status(404).json({message: "Could not find such doctor!"});
+            }
 
+        for(let i=0 ; i<availableSlots.length; i++) {
+           const slot = await doctor.createDoctor_available_slot(availableSlots[i]);
+                  if(!slot){
+                  return res.status(404).json({message: "Slot is not added!"});
+                  }  
+          }
+          res.status(200).json({message: "Slots Added Succesfully"})
+    }        
+  catch(err)
+  {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    err.message = "Internal Server Error!";
+    next(err);
+  }
+  
+}
+
+exports.getAvailableSlots = async (req, res, next) => {
+  const doctorId = req.userId;
+
+try {
+  const doctor = await Doctor.findByPk(doctorId);
+        if(!doctor){
+          return res.status(404).json({message: "Could not find such doctor!"});
+          }
+  const slots = await doctor.getDoctor_available_slots();      
+        if(!slots.length){
+          return res.status(404).json({message: "No available slots for this doctor"})
+          }
+        res.status(200).json({
+            message: "Available Slots:",
+            slots: slots
+          })
+  }      
+  
+  catch(err)
+  {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    err.message = "Internal Server Error!";
+    next(err);
+  }
+};
+
+exports.getSingleSlot = async (req, res, next) => {
+  const slotId = req.params.slotId;
+
+  try {
+  const slot = await Doctor_available_slot.findByPk(slotId)
+              if(!slot) {
+              return res.status(404).json({message:"Slot Not Found"})
+              }
+              res.status(200).json({
+                message: "Slot",
+                slot: slot
+              })
+    }
+   
+  catch(err)
+  {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    err.message = "Internal Server Error!";
+    next(err);
+  }
+};
+
+exports.editSingleSlot = async (req, res, next) => {
+  const slotId = req.params.slotId;
+  const updated_day_of_week = req.body.updated_day_of_week;
+  const updated_start_time = req.body.updated_start_time;
+  const updated_is_available = req.body.updated_is_available;
+
+try {
+  let selected_slot = await Doctor_available_slot.findByPk(slotId)
+               if(!selected_slot) {
+                return res.status(404).json({message:"Slot Not Found"});
+                }
+
+                // This check is not working well!
+
+                /*if(selected_slot.day_of_week === updated_day_of_week && selected_slot.start_time === updated_start_time && selected_slot.is_available === updated_is_available ) {
+                return res.status(401).json({message:"Updated data is the same as the old ones"})
+                }*/
+
+                selected_slot.day_of_week = updated_day_of_week;
+                selected_slot.start_time = updated_start_time;
+                selected_slot.is_available = updated_is_available;
+                selected_slot = await selected_slot.save();
+                if(!selected_slot) {
+                return res.status(401).json({message:"Error saving slot"})
+                }
+                res.status(200).json({
+                  message:"Slot Updated",
+                  slot: selected_slot
+                })
+    }
+    catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message = "Internal Server Error!";
+      next(err);
+    }
+}
+
+exports.addSupportedInsurances = async (req, res, next) => {
+  const doctorId = req.userId;
+  let supportedInsurances = req.body.supportedInsurances;
+
+  try {
+  const doctor = await Doctor.findByPk(doctorId)
+        if(!doctor) {
+          return res.status(404).json({message: "Could not find such doctor!"});
+          }
+
+          for(let i=0; i<supportedInsurances.length; i++ ) {
+            const insurance = await doctor.createInsurance(supportedInsurances[i]);
+            if(!insurance) {
+            return res.status(400).json({message:"Insurance not created"});
+            }
+          }
+          res.status(200).json({message: "Insurances Added Succesfully"})
+    }
+
+    catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message = "Internal Server Error!";
+      next(err);
+    }
+        
+};

@@ -6,7 +6,7 @@ const Doctor = require('../models/doctor');
 const Patient = require("../models/patient");
 
 
-exports.addPatient = (req, res, next) => {
+exports.addPatient = async (req, res, next) => {
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
@@ -20,69 +20,104 @@ exports.addPatient = (req, res, next) => {
     const country = req.body.country;
 
     //Add in DB
-    bcrypt
-        .hash(password, 12)
-        .then(hashedPw => {
-             return Patient.create({
-                    username: username,
-                    email: email,
-                    password: hashedPw,
-                    first_name: first_name,
-                    last_name: last_name,
-                    phone_number: phone_number,
-                    date_of_birth: date_of_birth,
-                    age: age,
-                    street_address: street_address,
-                    city: city,
-                    country: country
-            })
-        })
-        .then( patient => {
-            res.status(201).json({
-                 message: 'Patient Added!',
-                 patient: patient
+  try {
+    const hashedPw = await bcrypt.hash(password, 12);
+    const added_patient = await Patient.create({
+                                        username: username,
+                                        email: email,
+                                        password: hashedPw,
+                                        first_name: first_name,
+                                        last_name: last_name,
+                                        phone_number: phone_number,
+                                        date_of_birth: date_of_birth,
+                                        age: age,
+                                        street_address: street_address,
+                                        city: city,
+                                        country: country
+                                    })
+
+        if (!added_patient) {
+            return  res.status(404).json({message: 'Could not add patient'});
+           }
+        res.status(200).json({
+                  message: 'Patient Added!',
+                 patient: added_patient
             });
-        })
-        .catch(err => {
-          if (!err.statusCode) {
-          err.statusCode = 500;
-          err.message="Account ALREADY EXISTS"
-                      }
-        next(err);
-       });
+    }
+
+    catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message="Internal Server Error"
+      next(err);
+    }
+
 };
 
-exports.getProfile = (req, res, next) => {
-    const patientId = req.userId;
-    Patient.findByPk(patientId)
-        .then(patient => {
-            res.status(200).json({
+exports.getProfile = async (req, res, next) => {
+  const patientId = req.userId;
+
+  try {
+    const selected_patient = await Patient.findByPk(patientId)
+    if (!selected_patient) {
+          return res.status(404).json({message: 'Could not find patient'});
+      }
+        res.status(200).json({
                 message: 'Patient Profile',
-                patient: patient
+                patient: selected_patient
             });
-        })
-        .catch(err => console.log(err));
+  }  
+
+  catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message="Internal Server Error!";
+      next(err);
+    }
+       
 };
 
-exports.updateProfile = (req, res, next) => {
+exports.updateProfile = async (req, res, next) => {
     const patientId= req.userId;
     const updatedFirstName = req.body.updated_first_name;
     const updatedLastName = req.body.updated_last_name;
 
-  let updatedPatient = Patient.findByPk(patientId)
-        .then(patient => {
-            patient.first_name = updatedFirstName;
-            patient.last_name = updatedLastName;
-            updatedPatient = patient;
-            return patient.save(); 
-        })
-        .then(result => {
-            res.status(200).json({
+  try {
+    let selected_patient = await Patient.findByPk(patientId);
+    if (!selected_patient) {
+      return res.status(404).json({message: 'Could not find patient'});
+    }
+
+    if(selected_patient.first_name === updatedFirstName && selected_patient.last_name === updatedLastName) {
+    return res.status(401).json({message: "Updated data is the same as the old ones!"});
+  }
+        selected_patient.first_name = updatedFirstName;
+        selected_patient.last_name = updatedLastName;
+        
+        selected_patient = await selected_patient.save(); 
+        if(!selected_patient) {
+         return res.status(404).json({message: 'Error saving updated data'});
+        }
+        
+        res.status(200).json({
                 message: "Patient Updated!",
-                patient: updatedPatient
+                patient: selected_patient
             });
-        })
-        .catch( err => console.log(err));
+  }
+  
+  catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message="Internal Server Error!";
+      next(err);
+    }
+
 };
 
 exports.bookAppointment = async (req, res, next) => {
@@ -93,19 +128,18 @@ exports.bookAppointment = async (req, res, next) => {
    try{
    const selectedPatient = await  Patient.findByPk(patientId)
    if (!selectedPatient) {
-    const error = new Error('Could not find Patient.');
-    error.statusCode = 404;
-    throw error;
+    return res.status(404).json({message: 'Could not find patient'});
   }
    const appointment = await selectedPatient.createAppointment(
      {
-    start_time: start_time, appointment_date:  appointment_date,  doctorId: doctor_id, appointmentStatusId: 1
-   })
+    start_time: start_time,
+    appointment_date:  appointment_date,
+    doctorId: doctor_id,
+    appointmentStatusId: 1
+     });
 
    if (!appointment) {
-    const error = new Error('Could not Add Appointment.');
-    error.statusCode = 404;
-    throw error;
+    return res.status(404).json({message: 'Could not add appointment!'});
   }           
   res.status(200).json({ message: "Appointment Added Successfully !"});
     }
@@ -120,20 +154,33 @@ exports.bookAppointment = async (req, res, next) => {
   
 };
 
-exports.getAppointments = (req, res, next) => {
+exports.getAppointments = async (req, res, next) => {
     const patientId = req.userId;
-    
-    Patient.findByPk(patientId)
-           .then(patient => {
-             return  patient.getAppointments()
-           })
-           .then(appointments => {
-               res.status(200).json({
+try {
+    const selected_patient = await Patient.findByPk(patientId);
+    if (!selected_patient) {
+      return res.status(404).json({message: 'Could not find patient'});
+    }
+
+    const selected_appointments = await  selected_patient.getAppointments(); 
+    if (!selected_appointments.length) {
+      return res.status(404).json({message: 'No appointments found'});
+    }
+           
+    res.status(200).json({
                    message: "Patient Appointments",
-                   appointments: appointments
+                   appointments: selected_appointments
                })
-           })
-           .catch(err => console.log(err));
+ }
+          
+catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message="Internal Server Error!";
+      next(err);
+    }
 };
 
 exports.patientLogin = async (req, res, next) => {
@@ -175,10 +222,11 @@ exports.patientLogin = async (req, res, next) => {
     if (!err.statusCode) {
       err.statusCode = 500;
     }
+    err.message="Internal Server Error!";
     next(err);
   }
-}
 
+}
 exports.cancelPatientAppointment = async (req, res, next)=>{
 
     // Should notify patient!!
@@ -189,15 +237,11 @@ exports.cancelPatientAppointment = async (req, res, next)=>{
       selectedAppointment = await Appointment.findByPk(AppointmentId)
   
       if (!selectedAppointment) {
-        const error = new Error('An Appointment with this ID could not be found.');
-        error.statusCode = 401;
-        throw error;
+        return res.status(404).json({message: 'An Appointment with this ID could not be found.'});
       }
-      console.log(selectedAppointment.patientId)
+      
       if (selectedAppointment.patientId !== patientID ) {
-        const error = new Error('Invalid selected Appointment');
-        error.statusCode = 401;
-        throw error;
+        return res.status(404).json({message: 'Invalid selected Appointment.'});
       }
       // WHAT IF ALREADY CANCELD ***
       selectedAppointment.set(
@@ -209,7 +253,7 @@ exports.cancelPatientAppointment = async (req, res, next)=>{
   
       // MUST ADDD await notify patient (webSocket)***
   
-      res.status(200).json({ message: 'Appointments canceld Successfully !.', appointments: selectedAppointment });
+      res.status(200).json({ message: 'Appointments canceled successfully !.', appointments: selectedAppointment });
     
     
     }
@@ -232,11 +276,8 @@ exports.makeReview = async (req,res,next)=> {
     try{
       const selectedPatient = await Patient.findByPk(patientId)
 
-      if(!selectedPatient)
-      {
-        const err = new Error("NO SUCH PATIENT")
-        error.statusCode = 404;
-        throw error;
+      if(!selectedPatient){
+        return res.status(404).json({message: 'Could not find patient'});
       }
 
       // ** You should verify That Appointment with this doctor exists and its status is COMPLETE !! before Add the review
@@ -252,9 +293,7 @@ exports.makeReview = async (req,res,next)=> {
 
       if(!selectedDoctor)
       {
-        const err = new Error("NO SUCH DOCTOR")
-        error.statusCode = 404;
-        throw error;
+        return res.status(404).json({message: 'Could not find doctor.'});
       }
      
       // set doctor Catgs here ....

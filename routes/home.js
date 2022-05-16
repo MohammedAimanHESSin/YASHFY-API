@@ -8,4 +8,6 @@ router.get('/hospitals', homeController.getHospitals)
 
 router.get('/doctors', homeController.getDoctors)
 
+router.get('/insurances', homeController.getInsurances);
+
 module.exports = router;

@@ -1,6 +1,7 @@
 ////used Models
 const Doctor = require('../models/doctor');
 const Hospital = require('../models/hospital');
+const Insurance = require('../models/insurance');
 
 //Sequlize Lib
 const { QueryTypes } = require('sequelize');
@@ -101,4 +102,26 @@ const fetchedDoctors = await sequelize.query(
       }
       next(err);
     }
+  }
+
+  exports.getInsurances = async (req, res, next) => {
+    try {
+      const insurances = await Insurance.findAll()
+                if(!insurances.length) {
+                 return res.status(404).json({message:"No Insurances Found"})
+                }
+                res.status(200).json({
+                  message: "Insurances:",
+                  insurances: insurances
+                })
+      }
+
+      catch(err)
+      {
+        if (!err.statusCode) {
+          err.statusCode = 500;
+        }
+        err.message = "Internal Server Error!";
+        next(err);
+      }
   }
