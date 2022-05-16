@@ -38,9 +38,9 @@ exports.addPatient = async (req, res, next) => {
 
         if (!added_patient) {
             return  res.status(404).json({message: 'Could not add patient'});
-     }
-  res.status(200).json({
-                 message: 'Patient Added!',
+           }
+        res.status(200).json({
+                  message: 'Patient Added!',
                  patient: added_patient
             });
     }
@@ -148,7 +148,7 @@ exports.bookAppointment = async (req, res, next) => {
       if (!err.statusCode) {
         err.statusCode = 500;
       }
-      err.message="Internal server error!!"
+      err.message="Error in adding Appointment!!"
       next(err);
     }
   
@@ -184,36 +184,39 @@ catch(err)
 };
 
 exports.patientLogin = async (req, res, next) => {
-    const email = req.body.email;
-    const password = req.body.password;
-    let loadedPatient;
-
-  try { 
-    const patient = await Patient.findOne({
-      where: {
-        email: email
-      }
-    });
-   if(!patient) {
-        res.status(401).json({ message: 'Invalid Email!' });
+  const email = req.body.email;
+  const password = req.body.password;
+  try{
+  //compare email
+  const searchedPatient = await Patient.findOne({
+    where: {
+      email: email
     }
-    
-    loadedPatient = patient;
-    // BUGGGGGGGGGGGGGGGGGGGGGGGGGGG
-    let isEqual = bcrypt.compare(password, patient.password);
-    if(!isEqual){
-        res.status(401).json({ message: 'Invalid Password!' });
-      }
-
-    const token = jwt.sign({
-                    userId: loadedPatient.id.toString()
-              },
-               'yashfy-secret-key',
-               {expiresIn: '1h'}
-             );
-    res.status(200).json({token: token, userId: loadedPatient.id.toString() });
+  });
+  if (!searchedPatient) {
+    const error = new Error('A Patient with this email could not be found.');
+    error.statusCode = 401;
+    throw error;
   }
 
+  //compare password
+  let passEqula= await bcrypt.compare(password, searchedPatient.password);
+  if (!passEqula) {
+    res.status(401).json({ Error_message: 'Wrong password!'});
+    return;
+  }
+  //creat token for 1-hour
+  const createdToken = jwt.sign(
+    {
+      email: searchedPatient.email,
+      userId: searchedPatient.id
+    },
+    'yashfy-secret-key',
+    { expiresIn: '1h' }
+  );
+  res.status(200).json(
+    { token: createdToken, userId: searchedPatient.id });
+  }
   catch(err)
   {
     if (!err.statusCode) {
@@ -222,8 +225,8 @@ exports.patientLogin = async (req, res, next) => {
     err.message="Internal Server Error!";
     next(err);
   }
-};
 
+}
 exports.cancelPatientAppointment = async (req, res, next)=>{
 
     // Should notify patient!!

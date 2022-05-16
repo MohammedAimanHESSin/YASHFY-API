@@ -10,7 +10,7 @@ const Qualification = sequelize.define('qualification', {
     },
     qualification_name: Sequelize.STRING,
     institute_name: Sequelize.STRING,
-    procurement_year: Sequelize.DATE
+    procurement_year: Sequelize.DATEONLY
   });
   
   module.exports = Qualification;

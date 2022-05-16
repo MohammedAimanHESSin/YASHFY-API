@@ -12,12 +12,12 @@ const Doctor_available_slot = require('../models/doctor_available_slot');
 
 exports.signup =async (req, res, next) => {
     const errors = validationResult(req);
-    if (!errors.isEmpty())  //need to throw err properly
+    if (!errors.isEmpty())  //need to throw err properly <DONE!>
      {
       const error = new Error('Validation failed.');
       error.statusCode = 422;
       error.data = errors.array();
-      throw error;
+      next(error)
     }
     //extract body data
     const email = req.body.email;
@@ -31,6 +31,7 @@ exports.signup =async (req, res, next) => {
     const region = req.body.region;
     const date_of_birth = req.body.date_of_birth;
     const specialization = req.body.specialization;
+    const hospital_id = req.body.hospital_id;
    
     try{
       //create doctor
@@ -48,11 +49,18 @@ exports.signup =async (req, res, next) => {
             region: region ,
             date_of_birth: date_of_birth ,
             specialization: specialization ,
+            hospitalId: hospital_id,
             age: 0 })
+
+            if (!createdDoctor) {
+              const error = new Error('Cant Add Doctor  !');
+              error.statusCode = 404;
+              throw error;
+            }
 
         // add Hospital to the doctor
           let qulas = req.body.qualifications
-          if (!qulas) {
+          if (!qulas ) {
             const error = new Error('No Added Qualifications !');
             error.statusCode = 404;
             throw error;
@@ -90,7 +98,6 @@ exports.signup =async (req, res, next) => {
         {
           err.statusCode = 500;
         }
-        err.message="Account ALREADY EXISTS"
         next(err);
         }
 }
@@ -113,7 +120,7 @@ exports.login = async (req, res, next) => {
   }
 
   //compare password
-  let passEqula= bcrypt.compare(password, searchedDoctor.password);
+  let passEqula= await bcrypt.compare(password, searchedDoctor.password);
   if (!passEqula) {
     const error = new Error('Wrong password!');
     error.statusCode = 401;
@@ -291,6 +298,11 @@ exports.getDoctorAppointments = async (req, res, next)=>{
       return res.status(404).json({message: 'Could not find doctor.'});
     }
     doctroAppointments = await selectedDoctor.getAppointments()
+    if (!doctroAppointments.length) {
+      const error = new Error('No Appointments is found.');
+      error.statusCode = 404;
+      throw error;
+    }
     res.status(200).json({ message: 'Appointments fetched.', appointments: doctroAppointments });
   }
   catch(err)
@@ -311,7 +323,7 @@ exports.cancelDoctorAppointment = async (req, res, next)=>{
     const doctor_id = parseInt(req.userId)
     const AppointmentId = parseInt(req.body.AppointmentId)
 
-    selectedAppointment = await Appointment.findByPk(AppointmentId)
+    const selectedAppointment = await Appointment.findByPk(AppointmentId)
 
     if (!selectedAppointment) {
       return res.status(404).json({message: 'An Appointment with this ID could not be found'});

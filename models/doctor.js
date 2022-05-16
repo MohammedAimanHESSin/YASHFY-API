@@ -38,7 +38,7 @@ const Sequelize  = require('sequelize') // require 3rd party lib
    type: Sequelize.STRING
    },
    date_of_birth:{
-   type: Sequelize.DATE
+   type: Sequelize.DATEONLY
    },
    specialization:{
    type: Sequelize.STRING

@@ -15,7 +15,7 @@ const Patient = sequelize.define('patient', {
     first_name: Sequelize.STRING,
     last_name: Sequelize.STRING,
     phone_number: Sequelize.STRING,
-    date_of_birth: Sequelize.DATE,
+    date_of_birth: Sequelize.DATEONLY,
     age: Sequelize.INTEGER,
     street_address: Sequelize.STRING,
     city: Sequelize.STRING,
