@@ -8,9 +8,7 @@ const Hospital = sequelize.define('hospital', {
       allowNull: false,
       primaryKey: true
     },
-    hospital_name: Sequelize.STRING,
-    doctors_num: Sequelize.INTEGER,
-    specialities_num: Sequelize.INTEGER
+    hospital_name: Sequelize.STRING
   }, { timestamps: false });
   
   module.exports = Hospital;

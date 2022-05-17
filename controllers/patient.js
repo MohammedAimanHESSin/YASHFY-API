@@ -122,7 +122,7 @@ exports.updateProfile = async (req, res, next) => {
 
 exports.bookAppointment = async (req, res, next) => {
     const start_time = req.body.start_time;
-    const appointment_date = req.body.appointment_date;
+    const day_of_week = req.body.day_of_week;
     const doctor_id = req.body.doctor_id
     const patientId = req.userId;
    try{
@@ -133,7 +133,7 @@ exports.bookAppointment = async (req, res, next) => {
    const appointment = await selectedPatient.createAppointment(
      {
     start_time: start_time,
-    appointment_date:  appointment_date,
+    day_of_week:  day_of_week,
     doctorId: doctor_id,
     appointmentStatusId: 1
      });
@@ -194,9 +194,8 @@ exports.patientLogin = async (req, res, next) => {
     }
   });
   if (!searchedPatient) {
-    const error = new Error('A Patient with this email could not be found.');
-    error.statusCode = 401;
-    throw error;
+    return res.status(401).json(
+      { Error_message: 'A Patient with this email could not be found.' });
   }
 
   //compare password
@@ -288,38 +287,35 @@ exports.makeReview = async (req,res,next)=> {
         doctorId:  doctorId
       })
 
-      // ** CALL ML API TO Assigne polarities and update Doctor Categories !
+      /*const retrivedReview = await sequelize.query(
+        'SELECT R.id,R.review,R.is_review_annoymous,     FROM DOCTOR D join REVIEW R on DOCTOR.id = Review.doctorId', {
+        model: Doctor,
+        mapToModel: true ,// pass true here if you have any mapped fields,
+        replacements:{ specializationParam: specializationParam, regionParam: regionParam , cityParam : cityParam },
+        type: QueryTypes.SELECT
+      });*/
+    
+
+      /* // ** CALL ML API TO Assigne polarities and update Doctor Categories !
       const selectedDoctor = await Doctor.findByPk(doctorId)
 
       if(!selectedDoctor)
       {
         return res.status(404).json({message: 'Could not find doctor.'});
       }
-     
+     */
       // set doctor Catgs here ....
-      ```
-      selectedDoctor.set({
-        catgs_Clinic:,
-        catgs_doctor_treatment:  ,
-        catgs_staff:  ,
-        catgs_waiting_time:  ,
-        catgs_equipment:  ,
-        catgs_price:  ,
-        catgs_Other:  ,
-        general_rank:  
-        });
-      // update the database 
-      const updatedDoctor = await selectedDoctor.save()
-      ```
+
+
       res.status(201).json(
-        { message: "Review is Added Successfully !", doctorId: newReview.doctorId, patientId: patientId  });
+        { message: "Review is Added Successfully !", doctorId: newReview.doctorId, patientId: patientId , revieww: newReview });
     }
     catch(err)
     {
       if (!err.statusCode) {
         err.statusCode = 500;
       }
-      err.message = "ERROR: Review Not ADDDD ..";
+      err.message = "ERROR: Review Not ADDed ..";
       next(err);
     }
   }

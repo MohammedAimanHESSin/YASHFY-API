@@ -17,7 +17,11 @@ const Doctor_available_slot = sequelize.define('doctor_available_slot', {
       type: Sequelize.TIME,
       //primaryKey: true
     }, 
-    is_available: Sequelize.BOOLEAN,
+    is_available: 
+  {
+    type: Sequelize.BOOLEAN,
+    defaultValue: true
+  }
 });
 
 module.exports = Doctor_available_slot;

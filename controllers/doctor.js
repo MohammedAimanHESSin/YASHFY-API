@@ -94,6 +94,7 @@ exports.signup =async (req, res, next) => {
         }
         catch(err)
          {
+           err.message = " Internal Server Error"
         if (!err.statusCode) 
         {
           err.statusCode = 500;
@@ -101,7 +102,6 @@ exports.signup =async (req, res, next) => {
         next(err);
         }
 }
-
 
 exports.login = async (req, res, next) => {
   const email = req.body.email;
@@ -147,7 +147,6 @@ exports.login = async (req, res, next) => {
   }
 }
 
-
 exports.addQualificatin = async (req, res, next) => {
   let doctorId = parseInt(req.userId)
 
@@ -183,7 +182,6 @@ exports.addQualificatin = async (req, res, next) => {
   }
 }
 
-
 exports.getDoctorProfile = async (req, res, next)=>{
 
   const doctorId = parseInt(req.userId);
@@ -205,7 +203,6 @@ exports.getDoctorProfile = async (req, res, next)=>{
   }
 
 }
-
 
 exports.editDoctorProfile = async (req,res,next) => {
   const doctorId = parseInt(req.userId);
@@ -255,7 +252,6 @@ exports.editDoctorProfile = async (req,res,next) => {
  }
 }
 
-
 exports.addPhoneNumber = async (req, res, next) => { 
   let doctorId = parseInt(req.userId)
   try{
@@ -289,7 +285,6 @@ exports.addPhoneNumber = async (req, res, next) => {
     }
 }
 
-
 exports.getDoctorAppointments = async (req, res, next)=>{
   try{
     const doctor_id = parseInt(req.userId)
@@ -313,8 +308,6 @@ exports.getDoctorAppointments = async (req, res, next)=>{
     next(err);
   }
 }
-
-
 
 exports.cancelDoctorAppointment = async (req, res, next)=>{
 
@@ -386,13 +379,14 @@ exports.addSlots = async (req, res, next) => {
 
 exports.getAvailableSlots = async (req, res, next) => {
   const doctorId = req.userId;
-
 try {
   const doctor = await Doctor.findByPk(doctorId);
+  
         if(!doctor){
           return res.status(404).json({message: "Could not find such doctor!"});
           }
-  const slots = await doctor.getDoctor_available_slots();      
+
+        const slots = await doctor.getDoctor_available_slots();      
         if(!slots.length){
           return res.status(404).json({message: "No available slots for this doctor"})
           }
@@ -401,7 +395,6 @@ try {
             slots: slots
           })
   }      
-  
   catch(err)
   {
     if (!err.statusCode) {

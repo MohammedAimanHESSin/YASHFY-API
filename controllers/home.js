@@ -104,7 +104,7 @@ const fetchedDoctors = await sequelize.query(
     }
   }
 
-  exports.getInsurances = async (req, res, next) => {
+exports.getInsurances = async (req, res, next) => {
     try {
       const insurances = await Insurance.findAll()
                 if(!insurances.length) {
@@ -125,3 +125,66 @@ const fetchedDoctors = await sequelize.query(
         next(err);
       }
   }
+
+exports.getDoctorAvailableSlots = async (req, res, next) => {
+  const doctorId = parseInt(req.params.doctorId);
+  try {
+    const doctor = await Doctor.findByPk(doctorId);
+          if(!doctor){
+            return res.status(404).json({message: "Could not find such doctor!"});
+            }
+    const slots = await doctor.getDoctor_available_slots();      
+          if(!slots.length){
+            return res.status(404).json({message: "No available slots for this doctor"})
+            }
+          res.status(200).json({
+              message: "Available Slots:",
+              slots: slots
+            })
+    }      
+    catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message = "Internal Server Error!";
+      next(err);
+    }
+  }; 
+
+
+
+exports.getDoctorReviews = async (req, res, next) => {
+  const doctorId = parseInt(req.params.doctorId);
+  try {
+    const doctor = await Doctor.findByPk(doctorId);
+          if(!doctor){
+            return res.status(404).json({message: "Could not find such doctor!"});
+            }
+
+     const retrivedReviews = await sequelize.query(
+        'SELECT R.id, R.review, R.is_review_annoymous, DATE_FORMAT(DATE(R.createdAt), "%d %M %Y") as date, TIME_FORMAT(TIME(R.createdAt),"%h:%i %p") as time, Concat(p.first_name," ",p.last_name) as patient_name FROM Patients P join REVIEWs R on P.id = R.patientId where R.doctorId = :docId', {
+        type: QueryTypes.SELECT,
+        replacements:{ docId: doctorId}
+      });
+
+      if(!retrivedReviews.length){
+        return res.status(404).json({message: "No Reviews for this doctor"})
+        }
+
+          res.status(200).json({
+              message: "Successfully Retrieved Reviews:",
+              reviews: retrivedReviews
+            })
+    }      
+    catch(err)
+    {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      err.message = "Internal Server Error!";
+      next(err);
+    }
+
+
+}

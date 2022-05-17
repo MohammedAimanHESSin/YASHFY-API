@@ -12,13 +12,16 @@ const Appointment = sequelize.define('appointment', {
     start_time: {
       type:Sequelize.TIME, 
     },
-    appointment_date: Sequelize.DATEONLY  ,
+    day_of_week:{
+      type: Sequelize.ENUM,
+      values: ['Saturday', 'Sunday', 'Monday' ,'Tuesday','Wednesday','Thursday','Friday']
+    }  ,          
 }
 ,{
   indexes: [
       {
           unique: true,
-          fields: ['start_time', 'appointment_date', 'doctorID']
+          fields: ['start_time', 'day_of_week', 'doctorID']
       }
   ]
 }

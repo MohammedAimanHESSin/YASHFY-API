@@ -1,185 +1,186 @@
-first_name,City,region,specialization,Waiting Time,consultaion_fee
-Osama Mohamed Essawy,qalyubia,Banha : The intersection of Sharia Association Street with Al-Ikhlas Mosque St.,orthopedics,27 Minutes,150
-Mostafa Talat Morsy,qalyubia,Shibin Al Qanater : Eldelta Street,orthopedics,33 Minutes,85
-Eslam Abdelshafy Tabl,qalyubia,Banha : Villas - Nile Corniche,orthopedics,15 Minutes,100
-Mohamed Ahmed Abdelbaky,qalyubia,Banha : Elkobri St.,orthopedics,14 Minutes,125
-Eslam Gomaa,qalyubia,Banha : al adly square infront of al mamlka,orthopedics,27 Minutes,135
-Abdelsalam Abdelaleem AboElkhir,qalyubia,Banha : Saad Zaghlol St.,orthopedics,12 Minutes,150
-Mohamed Salah Labib,qalyubia,Banha : Sharq Elastad buildings street-besides General Insurance Hospital Banha Branch,orthopedics,Unknown,160
-Mahmoud Ahmed AboZaid,qalyubia,Qalyoub : Qaliub station -Rozalyousef crossings,orthopedics,37 Minutes,100
-Tamer Ahmed Iraqi,qalyubia,Banha : West Stadium Street,orthopedics,8 Minutes,100
-Mahmoud Ibrahim Kandil,qalyubia,Qalyoub : alxa der elakbar,orthopedics,30 Minutes,150
-Mahmoud Ahmed Abo Omar,gharbia,Tanta : Elmoderia cross osman mohamed,orthopedics,21 Minutes,150
-Mostafa Salah Mahrous,gharbia,Tanta : Al Mathaf with Elbahr,orthopedics,14 Minutes,200
-Ahmed Samy Elshaboury,gharbia,Tanta : anwer street,orthopedics,21 Minutes,150
-ahmed elsayed nahla,gharbia,Mahalla : shon square,orthopedics,17 Minutes,75
-Mohamed Abd Elfattah,gharbia,Tanta : sebrbay above makka pharmacy,orthopedics,16 Minutes,100
-Beshoy Kaldas,gharbia,"Tanta : Saad Zaghlool Square ,",orthopedics,11 Minutes,110
-farid helal,gharbia,Mahalla : abo shahin,orthopedics,5 Minutes,100
-Ahmed Gazar,gharbia,Mahalla : talat harab square,orthopedics,7 Minutes,110
-Ali Sobhy AlShtlawy,gharbia,Kafr El Zayat : Wood Street,orthopedics,17 Minutes,85
-Ahmed Samy,gharbia,Tanta : El modereya street,orthopedics,6 Minutes,160
-peter wassiem,Menoufia,Shibin El-Kom : sharaf square,orthopedics,11 Minutes,120
-Mohamed Yousry Abuzeid,Menoufia,"Shibin El-Kom : Quesna, saad zaghloul st.",orthopedics,14 Minutes,75
-Mohamed Hamed,Menoufia,Sadat City : The third region,orthopedics,14 Minutes,130
-mohamed Nasef,Menoufia,Birket El Sabea : berket elsaba west,orthopedics,8 Minutes,120
-Emad El Agroudy,Menoufia,"Ashmun : Abu Raqba, Ashmoun",orthopedics,Unknown,130
-Mohamed Awad,Menoufia,"Ashmun : Abu Raqba, Ashmoun",orthopedics,Unknown,130
-Shady Samir,Menoufia,"Ashmun : Abu Raqba, Ashmoun",orthopedics,Unknown,130
-Sherif Abd El Moneim,Menoufia,"Ashmun : Abu Raqba, Ashmoun",orthopedics,Unknown,130
-Ahmed Rayan,Menoufia,"Ashmun : Abu Raqba, Ashmoun",orthopedics,Unknown,130
-ahmed ebied,Menoufia,Shibin El-Kom : sharaf square,orthopedics,19 Hours and 16 Minutes,100
-Mikel Adel Sadek,Fayoum,El-Fayoum city : Eldali Street-Elgoun-Haret Mehany-Besides Elkarma Center And Above Elraie for Medical Tools,orthopedics,Unknown,120
-Alaa Abolhamd,Fayoum,El-Fayoum city : Elmasala Square-Abokhalaf Tower-above Rozana restaurant,orthopedics,25 Minutes,150
-Ahmad Salah Abu Taleb,Fayoum,El-Fayoum city : Masala Sq,orthopedics,33 Minutes,150
-Mohamed Abdeltawab Mahmoud,Fayoum,El-Fayoum city : El Masala beside the high bridge,orthopedics,46 Minutes,200
-Ahmed Hossam,Fayoum,El-Fayoum city : elmasla quality house tower,orthopedics,1 Hour and 22 Minutes,200
-Gabr Mustafa,Fayoum,El-Fayoum city : Jamal Abdel Nasser Street - in front of the Insurance Building,orthopedics,3 Hours and 7 Minutes,250
-Ahmed Refaat,Fayoum,El-Fayoum city : Port Said Street - Al Sufi,orthopedics,19 Minutes,200
-Osama Gaber,El-Dakahlia,El-Mansoura : El derasat streer,orthopedics,8 Minutes,100
-Mustafa abd elmogeb,El-Dakahlia,El-Mansoura : moaskar gdela doctors tower,orthopedics,19 Minutes,150
-Ashraf Elazab,El-Dakahlia,El-Mansoura : almahata square,orthopedics,31 Minutes,200
-Wael Ibrahim Elshaboury,El-Dakahlia,El-Mansoura : el swiss canal street,orthopedics,20 Minutes,110
-Ahmed Moatamed,El-Dakahlia,Mit Ghamr : Elgesh street elnile tower,orthopedics,1 Hour and 24 Minutes,150
-Mohamed Elserwy,El-Dakahlia,El-Mansoura : Square - Mohamed farid street,orthopedics,Unknown,150
-Makram Saleh,El-Dakahlia,El-Mansoura : Ezbet Elshal,orthopedics,7 Minutes,130
-Mohamed Ahmed El Kasaby,El-Dakahlia,El-Mansoura : Bank misr street,orthopedics,1 Hour and 3 Minutes,165
-Salam Rakha,El-Dakahlia,El-Mansoura : El swiss canal street,orthopedics,1 Hour and 32 Minutes,200
-Mohamed Fahmy abdelaziz,El-Dakahlia,El-Mansoura : El swiss canal street,orthopedics,Unknown,200
-Mohamed Salah El Naggar,El-Dakahlia,El-Mansoura : port said st,orthopedics,24 Minutes,110
-Ahmed Mohey,qalyubia,Banha : Farid Nada Street - in front of Najda,Nephrology,7 Minutes,150
-Salah Elbashir,qalyubia,Banha : Saad Zaghloul Square,Nephrology,17 Minutes,105
-Ahmed Mousa,qalyubia,Banha : Farid Nada St. - in front of the university reception,Nephrology,23 Minutes,100
-Basheer Elmohamady,qalyubia,Banha : fared nada,Nephrology,11 Minutes,200
-doctor Hammouda Elsherif,qalyubia,Banha : elasar,Nephrology,36 Minutes,225
-Tarek Elgohary,qalyubia,Qalyoub : Al asher mn ramadan street,Nephrology,26 Minutes,150
-Tarek Soliman Bedir,qalyubia,Qalyoub : Al-Juhaini Division,Nephrology,13 Minutes,100
-Ali Elsayed Ali,qalyubia,Banha : Saad Zaghloul Street,Nephrology,13 Minutes,140
-Hassan Ibrahim Akool,qalyubia,Banha : Altatbeqeen Buildings - Al Ahram - the first street of the Faculty of Commerce,Nephrology,1 Hour and 6 Minutes,100
-emad anter,gharbia,Samannoud : court st.,Nephrology,Unknown,100
-Eyad Abd Elwahab,gharbia,Tanta : Elmouez Tower-Elmahata Square-Infront Of Tanta Railway Station And Besides Mobil Fuel Station,Nephrology,Unknown,200
-Ahmed Mabrouk Elsheikh,gharbia,Tanta : Mahatta Square Street,Nephrology,2 Hours and 50 Minutes,150
-hussein farouk hussein,gharbia,Tanta : bahr st.,Nephrology,7 Minutes,150
-Shady Elmohamady Mourad,gharbia,Mahalla : Elborg . damro street,Nephrology,9 Minutes,105
-Samy Abdelkader Khoder,gharbia,Tanta : Othman Mohamed St,Nephrology,57 Minutes,275
-Hanzada Elmaghrabi,gharbia,Mahalla : bahr st.,Nephrology,32 Minutes,220
-Mahmoud Elsheikh,gharbia,Tanta : Hassan ibn sabet cross Elmoatassem,Nephrology,Unknown,200
-Hussein Mamdoh,gharbia,Tanta : modorya st,Nephrology,31 Minutes,130
-Mohamed Sabry Aboelnasr,gharbia,Kafr El Zayat : Saad Zaghlol in front of Basha studio,Nephrology,46 Minutes,125
-moaaz bakr,Menoufia,Birket El Sabea : elkornish,Nephrology,7 Minutes,85
-mohamed shokry elharoun,Menoufia,Shibin El-Kom : sharaf square,Nephrology,23 Minutes,100
-Ezzat Mohamed Abdallah,Menoufia,Birket El Sabea : station street,Nephrology,13 Minutes,100
-Peter Samir,Menoufia,Shibin El-Kom : Shanwan - Bahary,Nephrology,9 Minutes,100
-Mahmoud Emara,Menoufia,Shibin El-Kom : gamal abdlnasr,Nephrology,58 Minutes,250
-Walid Masoud,Menoufia,"Ashmun : Abu Raqba, Ashmoun",Nephrology,Unknown,130
-Tamer Shehab,Menoufia,Shibin El-Kom : sharaf square _ elhekma build,Nephrology,14 Minutes,180
-mohamed elshony,Menoufia,Birket El Sabea : gamal abdelnaser,Nephrology,Unknown,65
-Rania El Shal,El-Dakahlia,El-Mansoura : happy land square,Nephrology,6 Minutes,160
-Marwa Saleh,El-Dakahlia,El-Mansoura : gehan street,Nephrology,32 Minutes,170
-Samir Mohamed Sally,El-Dakahlia,El-Mansoura : Alsekka Algdeda,Nephrology,2 Hours and 6 Minutes,210
-Eslam ElEraqy,El-Dakahlia,Shirbin : AlSelk St. ElSharqawy Tower,Nephrology,26 Minutes,170
-Mohamed Nour eldin,El-Dakahlia,El-Mansoura : Elgalaa mashaal square,Nephrology,17 Minutes,110
-Ahmed Yousef Aboelsaad,El-Dakahlia,Belkas : el mahkma street,Nephrology,38 Minutes,120
-Hanan Yousef,El-Dakahlia,El-Mansoura : El galaa central street,Nephrology,12 Hours and 51 Minutes,150
-Emad Magdy Shawky,El-Dakahlia,El-Mansoura : the station square,Nephrology,23 Minutes,160
-Bedeir Ali El Dein,El-Dakahlia,El-Mansoura : Bank Masr,Nephrology,1 Hour and 3 Minutes,200
-Abdelmoneem mohammed,El-Dakahlia,El-Mansoura : el derasat street,Nephrology,18 Minutes,150
-Samah Ezzat,qalyubia,Banha : College of Commerce Street,Dermatology,20 Minutes,120
-Hanan Hassan Sabry,qalyubia,Banha : Court Street,Dermatology,26 Minutes,150
-Moshira Elbahrawy,qalyubia,Banha : Behind Najdah,Dermatology,19 Minutes,100
-doc ghada abd elhady elardy,qalyubia,Banha : farid nada,Dermatology,41 Minutes,100
-Saber Abd Elmassod,qalyubia,Banha : Fareed Nada Street-Above KFC restaurant,Dermatology,15 Minutes,200
-Wesam Ibrahim Homouda,qalyubia,Banha : Ali Zaki st. infront of Social Service Institute,Dermatology,10 Minutes,150
-Tamer Nomany,qalyubia,Banha : elshemot street,Dermatology,14 Minutes,80
-Nevin fawzy,qalyubia,Banha : gameel,Dermatology,7 Minutes,70
-Eman Sayed Abdelrahman,qalyubia,Banha : Saad Zaghloul Street - Mecca Tower,Dermatology,Unknown,75
-Mayada Alashry,gharbia,Tanta : elbahr st.,Dermatology,42 Minutes,100
-mohammed eltourkey,gharbia,Mahalla : elzarra road,Dermatology,11 Minutes,80
-yasmin zamzam,gharbia,Mahalla : sabaa banat,Dermatology,6 Minutes,90
-marwa naim younes,gharbia,Samannoud : elnahas square,Dermatology,4 Minutes,75
-Salim Salah Salim,gharbia,Tanta : Satota (Saad Zaghloul) square,Dermatology,19 Minutes,150
-Samia El Kilany,gharbia,Samannoud : nahas square,Dermatology,43 Minutes,85
-Sanaa Mostafa,gharbia,Tanta : ELborsa from Elsaa square Elshahawy Mall,Dermatology,15 Minutes,100
-Soheir Elsheikh,gharbia,Kafr El Zayat : Elgalaa St,Dermatology,7 Minutes,100
-ahmed mohamed elsayed,gharbia,Tanta : El Helw,Dermatology,7 Minutes,150
-Noha Hammad,gharbia,"Mahalla : Galaa street , elmash.hama",Dermatology,1 Hour,160
-dina ragab,Menoufia,Shibin El-Kom : sharaf square,Dermatology,32 Minutes,110
-Basma AbdElRahim,Menoufia,Shibin El-Kom : elgalaa elbahary street,Dermatology,29 Minutes,105
-mohamed shalaby,Menoufia,Shibin El-Kom : .,Dermatology,1 Hour and 11 Minutes,120
-ahmed fergany,Menoufia,Shibin El-Kom : Sharaf Squer,Dermatology,28 Minutes,125
-Manar Khater,Menoufia,Shibin El-Kom : Al-Bagour - Port Said Street,Dermatology,33 Minutes,150
-Sally Salah,Menoufia,Shibin El-Kom : met khakan,Dermatology,45 Minutes,55
-mohamed ragab,Menoufia,Sadat City : sadat specialized hospital street,Dermatology,12 Minutes,90
-Ahmed State,El-Dakahlia,El-Mansoura : Nawawy Road,Dermatology,58 Minutes,220
-Elham Elshatory,El-Dakahlia,El-Mansoura : el taraa street,Dermatology,1 Hour and 23 Minutes,150
-Ahmed Fawzy Ismail Ismail,El-Dakahlia,El-Mansoura : el tomehy square elmadina el monwra tower,Dermatology,9 Minutes,230
-ElSayd Said ElSayd,El-Dakahlia,El-Mansoura : ElTeraa St.,Dermatology,19 Minutes,55
-Doaa Kamal,El-Dakahlia,El-Mansoura : Talkha Salah salem st,Dermatology,Unknown,120
-Hussain Algallady,El-Dakahlia,El-Mansoura : el mashaya el soflia,Dermatology,2 Hours and 7 Minutes,220
-Ashraf El Galaby,El-Dakahlia,Aga : elgalaa street,Dermatology,25 Minutes,110
-Wafaa El shinawy,El-Dakahlia,Mit Ghamr : fikry street,Dermatology,5 Minutes,110
-Fatma Faisal,El-Dakahlia,El-Mansoura : Hay El gamaa Square Ahmed elhossiny street,Dermatology,Unknown,165
-Moustafa Abbas,El-Dakahlia,El Senbellawein : ElQantra Square ElTanany Tower,Dermatology,Unknown,300
-Dental Point center Dr Ameer Hamed,qalyubia,Banha : engineering syndicate street,Dentistry,26 Minutes,100
-Mohamed Elhamalawy,qalyubia,Banha : Farid Nada St,Dentistry,9 Minutes,50
-Moon Dental center,qalyubia,Banha : Faried Nada,Dentistry,33 Minutes,150
-I smile doctor ahmed ezzat,qalyubia,Banha : el safaa,Dentistry,12 Minutes,50
-Mohamed Elkhateb,qalyubia,Qalyoub : In front of Qalioub Court,Dentistry,32 Minutes,100
-Walaa Salah,qalyubia,Banha : Behind the university reception,Dentistry,12 Minutes,75
-Adel Rashid,qalyubia,Banha : Farid Nada Street,Dentistry,18 Minutes,220
-Mostafa Samy,qalyubia,Banha : saad zaghloul,Dentistry,Unknown,150
-Mustafa Ehab Ramdan,gharbia,Tanta : sayed el badawi square,Dentistry,16 Minutes,100
-Dalia Yosry Ayoub,gharbia,Tanta : Saed St,Dentistry,55 Minutes,100
-Ahmed Altras,gharbia,Tanta : Saad Zaghlool square-loaloa Tanta Tower-Above eltwheed w elnoor,Dentistry,26 Minutes,60
-Dr Ahmed Gamal Ragheb,gharbia,Mahalla : El-shon,Dentistry,11 Minutes,50
-Omar Abdelaziz,gharbia,Mahalla : Mashhama Square Reda Hafez Street,Dentistry,6 Minutes,70
-Ahmed amr Abdelmoez,gharbia,Mahalla : shokry elquatly,Dentistry,19 Minutes,100
-amr sakr,gharbia,Tanta : hassan bn thabet,Dentistry,28 Minutes,100
-Tarek Hamada dawoud,gharbia,Mahalla : elbandar - zamzam borg,Dentistry,12 Minutes,50
-Daniel Reda,gharbia,Tanta : ElBahr St·,Dentistry,21 Minutes,100
-Ahmed Salah,gharbia,Tanta : Hassan Radwan intersection with Al-Helw,Dentistry,18 Minutes,70
-Arafat Zyadaa,Menoufia,Shibin El-Kom : Talaat harb St,Dentistry,10 Minutes,100
-Hussien Nasef,Menoufia,Shibin El-Kom : Shibin,Dentistry,36 Minutes,250
-Ahmed Tarek El Shanawany,Menoufia,Shibin El-Kom : Al-Galaa Al-Bahary St,Dentistry,27 Minutes,150
-Osama Adel,Fayoum,El-Fayoum city : mohamdyia,Dentistry,16 Minutes,100
-Ahmed Ashraf Saad,El-Dakahlia,El-Mansoura : International Bus Street,Dentistry,9 Minutes,80
-Mohamed ElSaadany,El-Dakahlia,El-Mansoura : Street International Bus,Dentistry,10 Minutes,80
-Ahmed Hussein Abdulwahab NileClinic,El-Dakahlia,El-Mansoura : talkha - Nile street .nile tower,Dentistry,5 Minutes,100
-Ahmed Abdallah Badr,El-Dakahlia,El-Mansoura : Hay El Gamaa Gehahan St,Dentistry,10 Minutes,100
-Dr Mostafa Fawzy,El-Dakahlia,El-Mansoura : Bank Masr,Dentistry,10 Minutes,100
-Tasneem Ahmed Eldiarby,El-Dakahlia,El-Mansoura : hussen bek street,Dentistry,9 Minutes,100
-Ahmed Nour Eldin,El-Dakahlia,El-Mansoura : 6 october street coming,Dentistry,10 Minutes,100
-white dental clinics,El-Dakahlia,El-Mansoura : samia el gaml street,Dentistry,3 Minutes,100
-Ahmed Elsaed,El-Dakahlia,El-Mansoura : ahmed maher street,Dentistry,5 Minutes,150
-Ibrahim Abdallah Elafify,qalyubia,Banha : In front of the entrance to the outpatient clinics of Benha Teaching Hospital,Psychiatry,33 Minutes,200
-Abdelmohsen Elmenshawy,qalyubia,Banha : gamal abdel naser street,Psychiatry,18 Minutes,125
-Ahmed Abo Saif,qalyubia,Banha : Buildings east of the stadium,Psychiatry,28 Minutes,260
-Marwa Magdy,qalyubia,Shibin Al Qanater : toukh -port said,Psychiatry,Unknown,50
-ElSayed Mohamed AbdElwahab,gharbia,Mahalla : bahr st.,Psychiatry,50 Minutes,250
-mohamed taha,gharbia,Mahalla : talat harab station,Psychiatry,29 Minutes,150
-Mohamed Samy Haggag,gharbia,Tanta : (Saad zaghlol st )elmodarya from omar zafaan,Psychiatry,Unknown,180
-Hend Aref,gharbia,Tanta : shoman street,Psychiatry,27 Minutes,160
-Moustafa Abdelmoamen,gharbia,Tanta : Elgalaa street,Psychiatry,2 Minutes,160
-Ola Othman,gharbia,Kafr El Zayat : in front of the hospital,Psychiatry,14 Minutes,120
-Dawlat Nasr Abo fayed,gharbia,Samannoud : nahas square,Psychiatry,14 Minutes,210
-Ayat Farouk,gharbia,Tanta : Elnahas street cross Kafr essam,Psychiatry,1 Hour and 7 Minutes,150
-Alawi Hamed Abo elnour,gharbia,Tanta : ELborsa from Elsaa square Elshahawy Mall,Psychiatry,Unknown,175
-Dalia Mustafa,gharbia,Tanta : Loqman Alhakim stree,Psychiatry,Unknown,200
-Eman Helal,Menoufia,Shibin El-Kom : fayros building-Medan Sharaf,Psychiatry,41 Minutes,130
-hend emara,Menoufia,Shibin El-Kom : sharaf sqaure,Psychiatry,20 Minutes,130
-Nourham Kamal,Menoufia,Shibin El-Kom : gamal abdelnasser,Psychiatry,1 Hour and 14 Minutes,300
-Mohamed El Deeb,Menoufia,Shibin El-Kom : el amin street,Psychiatry,19 Minutes,200
-afaf zein,Menoufia,Shibin El-Kom : sharaf square,Psychiatry,43 Minutes,220
-osama mahmoud,Menoufia,Shibin El-Kom : mostashfa al rehab,Psychiatry,Unknown,250
-ahmed nabil ramdan,Menoufia,Shibin El-Kom : sharaf square dewan tower,Psychiatry,2 Hours and 46 Minutes,75
-Mohammed Mohammed Abd El Fattah Elkhosht,Fayoum,El-Fayoum city : infront of hassouna restaurant,Psychiatry,21 Minutes,100
-Amal Attwa,El-Dakahlia,El-Mansoura : between station square and hekma hospital,Psychiatry,51 Minutes,450
-Mahmoud ELWASIFY,El-Dakahlia,El-Mansoura : elmahata square,Psychiatry,3 Hours and 2 Minutes,500
-Alaa Sobhy,El-Dakahlia,El-Mansoura : ahmed maher street,Psychiatry,18 Minutes,150
-Mohamed Elwasify,El-Dakahlia,El-Mansoura : Mit Hader,Psychiatry,1 Hour and 8 Minutes,320
-Noha Hagag Amin,El-Dakahlia,Mit Ghamr : El gesh street el nile tower,Psychiatry,1 Hour and 6 Minutes,110
-Ayman Sabry,El-Dakahlia,Dekernes : Mgls elmadena,Psychiatry,2 Minutes,170
-Mostafa Elsabban,El-Dakahlia,El-Mansoura : .,Psychiatry,42 Minutes,200
-Mahmoud Yehia,El-Dakahlia,El Senbellawein : el hawal,Psychiatry,7 Minutes,150
-maha bourham,El-Dakahlia,El-Mansoura : gihan street,Psychiatry,2 Hours and 52 Minutes,220
-Mohamed Mitwally,El-Dakahlia,El-Mansoura : Hussein bek street in front of family regulation office,Psychiatry,35 Minutes,250
+"id";"first_name";"last_name";"username";"password";"email";"waiting_time";"consultaion_fee";"city";"region";"date_of_birth";"specialization";"catgs_Clinic";"catgs_doctor_treatment";"catgs_staff";"catgs_waiting_time";"catgs_equipment";"catgs_price";"catgs_Other";"general_rank";"hospitalId"
+1;"Osama Mohamed";"Essawy";"Osama_Mohamed";"$2a$12$e5LtJRCM9FK1p26wD3GiaunObYgghfln7LPU1rs0nhF1Y8dkJ/CfK";"Osama_Mohamed@yahoo.com";"27 Minutes";150;"qalyubia";"Banha : The intersection of Sharia Association Street with Al-Ikhlas Mosque St.";"1969-09-09";"orthopedics";0;0;0;0;0;0;0;0;5
+2;"Mostafa Talat Morsy";"";"";"";"";"33 Minutes";85;"qalyubia";"Shibin Al Qanater : Eldelta Street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+3;"Eslam Abdelshafy Tabl";"";"";"";"";"15 Minutes";100;"qalyubia";"Banha : Villas - Nile Corniche";"";"orthopedics";0;0;0;0;0;0;0;0;0
+4;"Mohamed Ahmed Abdelbaky";"";"";"";"";"14 Minutes";125;"qalyubia";"Banha : Elkobri St.";"";"orthopedics";0;0;0;0;0;0;0;0;0
+5;"Eslam Gomaa";"";"";"";"";"27 Minutes";135;"qalyubia";"Banha : al adly square infront of al mamlka";"";"orthopedics";0;0;0;0;0;0;0;0;0
+6;"Abdelsalam Abdelaleem AboElkhir";"";"";"";"";"12 Minutes";150;"qalyubia";"Banha : Saad Zaghlol St.";"";"orthopedics";0;0;0;0;0;0;0;0;0
+7;"Mohamed Salah Labib";"";"";"";"";"Unknown";160;"qalyubia";"Banha : Sharq Elastad buildings street-besides General Insurance Hospital Banha Branch";"";"orthopedics";0;0;0;0;0;0;0;0;0
+8;"Mahmoud Ahmed AboZaid";"";"";"";"";"37 Minutes";100;"qalyubia";"Qalyoub : Qaliub station -Rozalyousef crossings";"";"orthopedics";0;0;0;0;0;0;0;0;0
+9;"Tamer Ahmed Iraqi";"";"";"";"";"8 Minutes";100;"qalyubia";"Banha : West Stadium Street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+10;"Mahmoud Ibrahim Kandil";"";"";"";"";"30 Minutes";150;"qalyubia";"Qalyoub : alxa der elakbar";"";"orthopedics";0;0;0;0;0;0;0;0;0
+11;"Mahmoud Ahmed Abo Omar";"";"";"";"";"21 Minutes";150;"gharbia";"Tanta : Elmoderia cross osman mohamed";"";"orthopedics";0;0;0;0;0;0;0;0;0
+12;"Mostafa Salah Mahrous";"";"";"";"";"14 Minutes";200;"gharbia";"Tanta : Al Mathaf with Elbahr";"";"orthopedics";0;0;0;0;0;0;0;0;0
+13;"Ahmed Samy Elshaboury";"";"";"";"";"21 Minutes";150;"gharbia";"Tanta : anwer street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+14;"ahmed elsayed nahla";"";"";"";"";"17 Minutes";75;"gharbia";"Mahalla : shon square";"";"orthopedics";0;0;0;0;0;0;0;0;0
+15;"Mohamed Abd Elfattah";"";"";"";"";"16 Minutes";100;"gharbia";"Tanta : sebrbay above makka pharmacy";"";"orthopedics";0;0;0;0;0;0;0;0;0
+16;"Beshoy Kaldas";"";"";"";"";"11 Minutes";110;"gharbia";"Tanta : Saad Zaghlool Square ,";"";"orthopedics";0;0;0;0;0;0;0;0;0
+17;"farid helal";"";"";"";"";"5 Minutes";100;"gharbia";"Mahalla : abo shahin";"";"orthopedics";0;0;0;0;0;0;0;0;0
+18;"Ahmed Gazar";"";"";"";"";"7 Minutes";110;"gharbia";"Mahalla : talat harab square";"";"orthopedics";0;0;0;0;0;0;0;0;0
+19;"Ali Sobhy AlShtlawy";"";"";"";"";"17 Minutes";85;"gharbia";"Kafr El Zayat : Wood Street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+20;"Ahmed Samy";"";"";"";"";"6 Minutes";160;"gharbia";"Tanta : El modereya street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+21;"peter wassiem";"";"";"";"";"11 Minutes";120;"Menoufia";"Shibin El-Kom : sharaf square";"";"orthopedics";0;0;0;0;0;0;0;0;0
+22;"Mohamed Yousry Abuzeid";"";"";"";"";"14 Minutes";75;"Menoufia";"Shibin El-Kom : Quesna, saad zaghloul st.";"";"orthopedics";0;0;0;0;0;0;0;0;0
+23;"Mohamed Hamed";"";"";"";"";"14 Minutes";130;"Menoufia";"Sadat City : The third region";"";"orthopedics";0;0;0;0;0;0;0;0;0
+24;"mohamed Nasef";"";"";"";"";"8 Minutes";120;"Menoufia";"Birket El Sabea : berket elsaba west";"";"orthopedics";0;0;0;0;0;0;0;0;0
+25;"Emad El Agroudy";"";"";"";"";"Unknown";130;"Menoufia";"Ashmun : Abu Raqba, Ashmoun";"";"orthopedics";0;0;0;0;0;0;0;0;0
+26;"Mohamed Awad";"";"";"";"";"Unknown";130;"Menoufia";"Ashmun : Abu Raqba, Ashmoun";"";"orthopedics";0;0;0;0;0;0;0;0;0
+27;"Shady Samir";"";"";"";"";"Unknown";130;"Menoufia";"Ashmun : Abu Raqba, Ashmoun";"";"orthopedics";0;0;0;0;0;0;0;0;0
+28;"Sherif Abd El Moneim";"";"";"";"";"Unknown";130;"Menoufia";"Ashmun : Abu Raqba, Ashmoun";"";"orthopedics";0;0;0;0;0;0;0;0;0
+29;"Ahmed Rayan";"";"";"";"";"Unknown";130;"Menoufia";"Ashmun : Abu Raqba, Ashmoun";"";"orthopedics";0;0;0;0;0;0;0;0;0
+30;"ahmed ebied";"";"";"";"";"19 Hours and 16 Minutes";100;"Menoufia";"Shibin El-Kom : sharaf square";"";"orthopedics";0;0;0;0;0;0;0;0;0
+31;"Mikel Adel Sadek";"";"";"";"";"Unknown";120;"Fayoum";"El-Fayoum city : Eldali Street-Elgoun-Haret Mehany-Besides Elkarma Center And Above Elraie for Medical Tools";"";"orthopedics";0;0;0;0;0;0;0;0;0
+32;"Alaa Abolhamd";"";"";"";"";"25 Minutes";150;"Fayoum";"El-Fayoum city : Elmasala Square-Abokhalaf Tower-above Rozana restaurant";"";"orthopedics";0;0;0;0;0;0;0;0;0
+33;"Ahmad Salah Abu Taleb";"";"";"";"";"33 Minutes";150;"Fayoum";"El-Fayoum city : Masala Sq";"";"orthopedics";0;0;0;0;0;0;0;0;0
+34;"Mohamed Abdeltawab Mahmoud";"";"";"";"";"46 Minutes";200;"Fayoum";"El-Fayoum city : El Masala beside the high bridge";"";"orthopedics";0;0;0;0;0;0;0;0;0
+35;"Ahmed Hossam";"";"";"";"";"1 Hour and 22 Minutes";200;"Fayoum";"El-Fayoum city : elmasla quality house tower";"";"orthopedics";0;0;0;0;0;0;0;0;0
+36;"Gabr Mustafa";"";"";"";"";"3 Hours and 7 Minutes";250;"Fayoum";"El-Fayoum city : Jamal Abdel Nasser Street - in front of the Insurance Building";"";"orthopedics";0;0;0;0;0;0;0;0;0
+37;"Ahmed Refaat";"";"";"";"";"19 Minutes";200;"Fayoum";"El-Fayoum city : Port Said Street - Al Sufi";"";"orthopedics";0;0;0;0;0;0;0;0;0
+38;"Osama Gaber";"";"";"";"";"8 Minutes";100;"El-Dakahlia";"El-Mansoura : El derasat streer";"";"orthopedics";0;0;0;0;0;0;0;0;0
+39;"Mustafa abd elmogeb";"";"";"";"";"19 Minutes";150;"El-Dakahlia";"El-Mansoura : moaskar gdela doctors tower";"";"orthopedics";0;0;0;0;0;0;0;0;0
+40;"Ashraf Elazab";"";"";"";"";"31 Minutes";200;"El-Dakahlia";"El-Mansoura : almahata square";"";"orthopedics";0;0;0;0;0;0;0;0;0
+41;"Wael Ibrahim Elshaboury";"";"";"";"";"20 Minutes";110;"El-Dakahlia";"El-Mansoura : el swiss canal street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+42;"Ahmed Moatamed";"";"";"";"";"1 Hour and 24 Minutes";150;"El-Dakahlia";"Mit Ghamr : Elgesh street elnile tower";"";"orthopedics";0;0;0;0;0;0;0;0;0
+43;"Mohamed Elserwy";"";"";"";"";"Unknown";150;"El-Dakahlia";"El-Mansoura : Square - Mohamed farid street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+44;"Makram Saleh";"";"";"";"";"7 Minutes";130;"El-Dakahlia";"El-Mansoura : Ezbet Elshal";"";"orthopedics";0;0;0;0;0;0;0;0;0
+45;"Mohamed Ahmed El Kasaby";"";"";"";"";"1 Hour and 3 Minutes";165;"El-Dakahlia";"El-Mansoura : Bank misr street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+46;"Salam Rakha";"";"";"";"";"1 Hour and 32 Minutes";200;"El-Dakahlia";"El-Mansoura : El swiss canal street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+47;"Mohamed Fahmy abdelaziz";"";"";"";"";"Unknown";200;"El-Dakahlia";"El-Mansoura : El swiss canal street";"";"orthopedics";0;0;0;0;0;0;0;0;0
+48;"Mohamed Salah El Naggar";"";"";"";"";"24 Minutes";110;"El-Dakahlia";"El-Mansoura : port said st";"";"orthopedics";0;0;0;0;0;0;0;0;0
+49;"Ahmed Mohey";"";"";"";"";"7 Minutes";150;"qalyubia";"Banha : Farid Nada Street - in front of Najda";"";"Nephrology";0;0;0;0;0;0;0;0;0
+50;"Salah Elbashir";"";"";"";"";"17 Minutes";105;"qalyubia";"Banha : Saad Zaghloul Square";"";"Nephrology";0;0;0;0;0;0;0;0;0
+51;"Ahmed Mousa";"";"";"";"";"23 Minutes";100;"qalyubia";"Banha : Farid Nada St. - in front of the university reception";"";"Nephrology";0;0;0;0;0;0;0;0;0
+52;"Basheer Elmohamady";"";"";"";"";"11 Minutes";200;"qalyubia";"Banha : fared nada";"";"Nephrology";0;0;0;0;0;0;0;0;0
+53;"doctor Hammouda Elsherif";"";"";"";"";"36 Minutes";225;"qalyubia";"Banha : elasar";"";"Nephrology";0;0;0;0;0;0;0;0;0
+54;"Tarek Elgohary";"";"";"";"";"26 Minutes";150;"qalyubia";"Qalyoub : Al asher mn ramadan street";"";"Nephrology";0;0;0;0;0;0;0;0;0
+55;"Tarek Soliman Bedir";"";"";"";"";"13 Minutes";100;"qalyubia";"Qalyoub : Al-Juhaini Division";"";"Nephrology";0;0;0;0;0;0;0;0;0
+56;"Ali Elsayed Ali";"";"";"";"";"13 Minutes";140;"qalyubia";"Banha : Saad Zaghloul Street";"";"Nephrology";0;0;0;0;0;0;0;0;0
+57;"Hassan Ibrahim Akool";"";"";"";"";"1 Hour and 6 Minutes";100;"qalyubia";"Banha : Altatbeqeen Buildings - Al Ahram - the first street of the Faculty of Commerce";"";"Nephrology";0;0;0;0;0;0;0;0;0
+58;"emad anter";"";"";"";"";"Unknown";100;"gharbia";"Samannoud : court st.";"";"Nephrology";0;0;0;0;0;0;0;0;0
+59;"Eyad Abd Elwahab";"";"";"";"";"Unknown";200;"gharbia";"Tanta : Elmouez Tower-Elmahata Square-Infront Of Tanta Railway Station And Besides Mobil Fuel Station";"";"Nephrology";0;0;0;0;0;0;0;0;0
+60;"Ahmed Mabrouk Elsheikh";"";"";"";"";"2 Hours and 50 Minutes";150;"gharbia";"Tanta : Mahatta Square Street";"";"Nephrology";0;0;0;0;0;0;0;0;0
+61;"hussein farouk hussein";"";"";"";"";"7 Minutes";150;"gharbia";"Tanta : bahr st.";"";"Nephrology";0;0;0;0;0;0;0;0;0
+62;"Shady Elmohamady Mourad";"";"";"";"";"9 Minutes";105;"gharbia";"Mahalla : Elborg . damro street";"";"Nephrology";0;0;0;0;0;0;0;0;0
+63;"Samy Abdelkader Khoder";"";"";"";"";"57 Minutes";275;"gharbia";"Tanta : Othman Mohamed St";"";"Nephrology";0;0;0;0;0;0;0;0;0
+64;"Hanzada Elmaghrabi";"";"";"";"";"32 Minutes";220;"gharbia";"Mahalla : bahr st.";"";"Nephrology";0;0;0;0;0;0;0;0;0
+65;"Mahmoud Elsheikh";"";"";"";"";"Unknown";200;"gharbia";"Tanta : Hassan ibn sabet cross Elmoatassem";"";"Nephrology";0;0;0;0;0;0;0;0;0
+66;"Hussein Mamdoh";"";"";"";"";"31 Minutes";130;"gharbia";"Tanta : modorya st";"";"Nephrology";0;0;0;0;0;0;0;0;0
+67;"Mohamed Sabry Aboelnasr";"";"";"";"";"46 Minutes";125;"gharbia";"Kafr El Zayat : Saad Zaghlol in front of Basha studio";"";"Nephrology";0;0;0;0;0;0;0;0;0
+68;"moaaz bakr";"";"";"";"";"7 Minutes";85;"Menoufia";"Birket El Sabea : elkornish";"";"Nephrology";0;0;0;0;0;0;0;0;0
+69;"mohamed shokry elharoun";"";"";"";"";"23 Minutes";100;"Menoufia";"Shibin El-Kom : sharaf square";"";"Nephrology";0;0;0;0;0;0;0;0;0
+70;"Ezzat Mohamed Abdallah";"";"";"";"";"13 Minutes";100;"Menoufia";"Birket El Sabea : station street";"";"Nephrology";0;0;0;0;0;0;0;0;0
+71;"Peter Samir";"";"";"";"";"9 Minutes";100;"Menoufia";"Shibin El-Kom : Shanwan - Bahary";"";"Nephrology";0;0;0;0;0;0;0;0;0
+72;"Mahmoud Emara";"";"";"";"";"58 Minutes";250;"Menoufia";"Shibin El-Kom : gamal abdlnasr";"";"Nephrology";0;0;0;0;0;0;0;0;0
+73;"Walid Masoud";"";"";"";"";"Unknown";130;"Menoufia";"Ashmun : Abu Raqba, Ashmoun";"";"Nephrology";0;0;0;0;0;0;0;0;0
+74;"Tamer Shehab";"";"";"";"";"14 Minutes";180;"Menoufia";"Shibin El-Kom : sharaf square _ elhekma build";"";"Nephrology";0;0;0;0;0;0;0;0;0
+75;"mohamed elshony";"";"";"";"";"Unknown";65;"Menoufia";"Birket El Sabea : gamal abdelnaser";"";"Nephrology";0;0;0;0;0;0;0;0;0
+76;"Rania El Shal";"";"";"";"";"6 Minutes";160;"El-Dakahlia";"El-Mansoura : happy land square";"";"Nephrology";0;0;0;0;0;0;0;0;0
+77;"Marwa Saleh";"";"";"";"";"32 Minutes";170;"El-Dakahlia";"El-Mansoura : gehan street";"";"Nephrology";0;0;0;0;0;0;0;0;0
+78;"Samir Mohamed Sally";"";"";"";"";"2 Hours and 6 Minutes";210;"El-Dakahlia";"El-Mansoura : Alsekka Algdeda";"";"Nephrology";0;0;0;0;0;0;0;0;0
+79;"Eslam ElEraqy";"";"";"";"";"26 Minutes";170;"El-Dakahlia";"Shirbin : AlSelk St. ElSharqawy Tower";"";"Nephrology";0;0;0;0;0;0;0;0;0
+80;"Mohamed Nour eldin";"";"";"";"";"17 Minutes";110;"El-Dakahlia";"El-Mansoura : Elgalaa mashaal square";"";"Nephrology";0;0;0;0;0;0;0;0;0
+81;"Ahmed Yousef Aboelsaad";"";"";"";"";"38 Minutes";120;"El-Dakahlia";"Belkas : el mahkma street";"";"Nephrology";0;0;0;0;0;0;0;0;0
+82;"Hanan Yousef";"";"";"";"";"12 Hours and 51 Minutes";150;"El-Dakahlia";"El-Mansoura : El galaa central street";"";"Nephrology";0;0;0;0;0;0;0;0;0
+83;"Emad Magdy Shawky";"";"";"";"";"23 Minutes";160;"El-Dakahlia";"El-Mansoura : the station square";"";"Nephrology";0;0;0;0;0;0;0;0;0
+84;"Bedeir Ali El Dein";"";"";"";"";"1 Hour and 3 Minutes";200;"El-Dakahlia";"El-Mansoura : Bank Masr";"";"Nephrology";0;0;0;0;0;0;0;0;0
+85;"Abdelmoneem mohammed";"";"";"";"";"18 Minutes";150;"El-Dakahlia";"El-Mansoura : el derasat street";"";"Nephrology";0;0;0;0;0;0;0;0;0
+86;"Samah Ezzat";"";"";"";"";"20 Minutes";120;"qalyubia";"Banha : College of Commerce Street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+87;"Hanan Hassan Sabry";"";"";"";"";"26 Minutes";150;"qalyubia";"Banha : Court Street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+88;"Moshira Elbahrawy";"";"";"";"";"19 Minutes";100;"qalyubia";"Banha : Behind Najdah";"";"Dermatology";0;0;0;0;0;0;0;0;0
+89;"doc ghada abd elhady elardy";"";"";"";"";"41 Minutes";100;"qalyubia";"Banha : farid nada";"";"Dermatology";0;0;0;0;0;0;0;0;0
+90;"Saber Abd Elmassod";"";"";"";"";"15 Minutes";200;"qalyubia";"Banha : Fareed Nada Street-Above KFC restaurant";"";"Dermatology";0;0;0;0;0;0;0;0;0
+91;"Wesam Ibrahim Homouda";"";"";"";"";"10 Minutes";150;"qalyubia";"Banha : Ali Zaki st. infront of Social Service Institute";"";"Dermatology";0;0;0;0;0;0;0;0;0
+92;"Tamer Nomany";"";"";"";"";"14 Minutes";80;"qalyubia";"Banha : elshemot street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+93;"Nevin fawzy";"";"";"";"";"7 Minutes";70;"qalyubia";"Banha : gameel";"";"Dermatology";0;0;0;0;0;0;0;0;0
+94;"Eman Sayed Abdelrahman";"";"";"";"";"Unknown";75;"qalyubia";"Banha : Saad Zaghloul Street - Mecca Tower";"";"Dermatology";0;0;0;0;0;0;0;0;0
+95;"Mayada Alashry";"";"";"";"";"42 Minutes";100;"gharbia";"Tanta : elbahr st.";"";"Dermatology";0;0;0;0;0;0;0;0;0
+96;"mohammed eltourkey";"";"";"";"";"11 Minutes";80;"gharbia";"Mahalla : elzarra road";"";"Dermatology";0;0;0;0;0;0;0;0;0
+97;"yasmin zamzam";"";"";"";"";"6 Minutes";90;"gharbia";"Mahalla : sabaa banat";"";"Dermatology";0;0;0;0;0;0;0;0;0
+98;"marwa naim younes";"";"";"";"";"4 Minutes";75;"gharbia";"Samannoud : elnahas square";"";"Dermatology";0;0;0;0;0;0;0;0;0
+99;"Salim Salah Salim";"";"";"";"";"19 Minutes";150;"gharbia";"Tanta : Satota (Saad Zaghloul) square";"";"Dermatology";0;0;0;0;0;0;0;0;0
+100;"Samia El Kilany";"";"";"";"";"43 Minutes";85;"gharbia";"Samannoud : nahas square";"";"Dermatology";0;0;0;0;0;0;0;0;0
+101;"Sanaa Mostafa";"";"";"";"";"15 Minutes";100;"gharbia";"Tanta : ELborsa from Elsaa square Elshahawy Mall";"";"Dermatology";0;0;0;0;0;0;0;0;0
+102;"Soheir Elsheikh";"";"";"";"";"7 Minutes";100;"gharbia";"Kafr El Zayat : Elgalaa St";"";"Dermatology";0;0;0;0;0;0;0;0;0
+103;"ahmed mohamed elsayed";"";"";"";"";"7 Minutes";150;"gharbia";"Tanta : El Helw";"";"Dermatology";0;0;0;0;0;0;0;0;0
+104;"Noha Hammad";"";"";"";"";"1 Hour";160;"gharbia";"Mahalla : Galaa street , elmash.hama";"";"Dermatology";0;0;0;0;0;0;0;0;0
+105;"dina ragab";"";"";"";"";"32 Minutes";110;"Menoufia";"Shibin El-Kom : sharaf square";"";"Dermatology";0;0;0;0;0;0;0;0;0
+106;"Basma AbdElRahim";"";"";"";"";"29 Minutes";105;"Menoufia";"Shibin El-Kom : elgalaa elbahary street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+107;"mohamed shalaby";"";"";"";"";"1 Hour and 11 Minutes";120;"Menoufia";"Shibin El-Kom : .";"";"Dermatology";0;0;0;0;0;0;0;0;0
+108;"ahmed fergany";"";"";"";"";"28 Minutes";125;"Menoufia";"Shibin El-Kom : Sharaf Squer";"";"Dermatology";0;0;0;0;0;0;0;0;0
+109;"Manar Khater";"";"";"";"";"33 Minutes";150;"Menoufia";"Shibin El-Kom : Al-Bagour - Port Said Street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+110;"Sally Salah";"";"";"";"";"45 Minutes";55;"Menoufia";"Shibin El-Kom : met khakan";"";"Dermatology";0;0;0;0;0;0;0;0;0
+111;"mohamed ragab";"";"";"";"";"12 Minutes";90;"Menoufia";"Sadat City : sadat specialized hospital street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+112;"Ahmed State";"";"";"";"";"58 Minutes";220;"El-Dakahlia";"El-Mansoura : Nawawy Road";"";"Dermatology";0;0;0;0;0;0;0;0;0
+113;"Elham Elshatory";"";"";"";"";"1 Hour and 23 Minutes";150;"El-Dakahlia";"El-Mansoura : el taraa street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+114;"Ahmed Fawzy Ismail Ismail";"";"";"";"";"9 Minutes";230;"El-Dakahlia";"El-Mansoura : el tomehy square elmadina el monwra tower";"";"Dermatology";0;0;0;0;0;0;0;0;0
+115;"ElSayd Said ElSayd";"";"";"";"";"19 Minutes";55;"El-Dakahlia";"El-Mansoura : ElTeraa St.";"";"Dermatology";0;0;0;0;0;0;0;0;0
+116;"Doaa Kamal";"";"";"";"";"Unknown";120;"El-Dakahlia";"El-Mansoura : Talkha Salah salem st";"";"Dermatology";0;0;0;0;0;0;0;0;0
+117;"Hussain Algallady";"";"";"";"";"2 Hours and 7 Minutes";220;"El-Dakahlia";"El-Mansoura : el mashaya el soflia";"";"Dermatology";0;0;0;0;0;0;0;0;0
+118;"Ashraf El Galaby";"";"";"";"";"25 Minutes";110;"El-Dakahlia";"Aga : elgalaa street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+119;"Wafaa El shinawy";"";"";"";"";"5 Minutes";110;"El-Dakahlia";"Mit Ghamr : fikry street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+120;"Fatma Faisal";"";"";"";"";"Unknown";165;"El-Dakahlia";"El-Mansoura : Hay El gamaa Square Ahmed elhossiny street";"";"Dermatology";0;0;0;0;0;0;0;0;0
+121;"Moustafa Abbas";"";"";"";"";"Unknown";300;"El-Dakahlia";"El Senbellawein : ElQantra Square ElTanany Tower";"";"Dermatology";0;0;0;0;0;0;0;0;0
+122;"Dental Point center Dr Ameer Hamed";"";"";"";"";"26 Minutes";100;"qalyubia";"Banha : engineering syndicate street";"";"Dentistry";0;0;0;0;0;0;0;0;0
+123;"Mohamed Elhamalawy";"";"";"";"";"9 Minutes";50;"qalyubia";"Banha : Farid Nada St";"";"Dentistry";0;0;0;0;0;0;0;0;0
+124;"Moon Dental center";"";"";"";"";"33 Minutes";150;"qalyubia";"Banha : Faried Nada";"";"Dentistry";0;0;0;0;0;0;0;0;0
+125;"I smile doctor ahmed ezzat";"";"";"";"";"12 Minutes";50;"qalyubia";"Banha : el safaa";"";"Dentistry";0;0;0;0;0;0;0;0;0
+126;"Mohamed Elkhateb";"";"";"";"";"32 Minutes";100;"qalyubia";"Qalyoub : In front of Qalioub Court";"";"Dentistry";0;0;0;0;0;0;0;0;0
+127;"Walaa Salah";"";"";"";"";"12 Minutes";75;"qalyubia";"Banha : Behind the university reception";"";"Dentistry";0;0;0;0;0;0;0;0;0
+128;"Adel Rashid";"";"";"";"";"18 Minutes";220;"qalyubia";"Banha : Farid Nada Street";"";"Dentistry";0;0;0;0;0;0;0;0;0
+129;"Mostafa Samy";"";"";"";"";"Unknown";150;"qalyubia";"Banha : saad zaghloul";"";"Dentistry";0;0;0;0;0;0;0;0;0
+130;"Mustafa Ehab Ramdan";"";"";"";"";"16 Minutes";100;"gharbia";"Tanta : sayed el badawi square";"";"Dentistry";0;0;0;0;0;0;0;0;0
+131;"Dalia Yosry Ayoub";"";"";"";"";"55 Minutes";100;"gharbia";"Tanta : Saed St";"";"Dentistry";0;0;0;0;0;0;0;0;0
+132;"Ahmed Altras";"";"";"";"";"26 Minutes";60;"gharbia";"Tanta : Saad Zaghlool square-loaloa Tanta Tower-Above eltwheed w elnoor";"";"Dentistry";0;0;0;0;0;0;0;0;0
+133;"Dr Ahmed Gamal Ragheb";"";"";"";"";"11 Minutes";50;"gharbia";"Mahalla : El-shon";"";"Dentistry";0;0;0;0;0;0;0;0;0
+134;"Omar Abdelaziz";"";"";"";"";"6 Minutes";70;"gharbia";"Mahalla : Mashhama Square Reda Hafez Street";"";"Dentistry";0;0;0;0;0;0;0;0;0
+135;"Ahmed amr Abdelmoez";"";"";"";"";"19 Minutes";100;"gharbia";"Mahalla : shokry elquatly";"";"Dentistry";0;0;0;0;0;0;0;0;0
+136;"amr sakr";"";"";"";"";"28 Minutes";100;"gharbia";"Tanta : hassan bn thabet";"";"Dentistry";0;0;0;0;0;0;0;0;0
+137;"Tarek Hamada dawoud";"";"";"";"";"12 Minutes";50;"gharbia";"Mahalla : elbandar - zamzam borg";"";"Dentistry";0;0;0;0;0;0;0;0;0
+138;"Daniel Reda";"";"";"";"";"21 Minutes";100;"gharbia";"Tanta : ElBahr St·";"";"Dentistry";0;0;0;0;0;0;0;0;0
+139;"Ahmed Salah";"";"";"";"";"18 Minutes";70;"gharbia";"Tanta : Hassan Radwan intersection with Al-Helw";"";"Dentistry";0;0;0;0;0;0;0;0;0
+140;"Arafat Zyadaa";"";"";"";"";"10 Minutes";100;"Menoufia";"Shibin El-Kom : Talaat harb St";"";"Dentistry";0;0;0;0;0;0;0;0;0
+141;"Hussien Nasef";"";"";"";"";"36 Minutes";250;"Menoufia";"Shibin El-Kom : Shibin";"";"Dentistry";0;0;0;0;0;0;0;0;0
+142;"Ahmed Tarek El Shanawany";"";"";"";"";"27 Minutes";150;"Menoufia";"Shibin El-Kom : Al-Galaa Al-Bahary St";"";"Dentistry";0;0;0;0;0;0;0;0;0
+143;"Osama Adel";"";"";"";"";"16 Minutes";100;"Fayoum";"El-Fayoum city : mohamdyia";"";"Dentistry";0;0;0;0;0;0;0;0;0
+144;"Ahmed Ashraf Saad";"";"";"";"";"9 Minutes";80;"El-Dakahlia";"El-Mansoura : International Bus Street";"";"Dentistry";0;0;0;0;0;0;0;0;0
+145;"Mohamed ElSaadany";"";"";"";"";"10 Minutes";80;"El-Dakahlia";"El-Mansoura : Street International Bus";"";"Dentistry";0;0;0;0;0;0;0;0;0
+146;"Ahmed Hussein Abdulwahab NileClinic";"";"";"";"";"5 Minutes";100;"El-Dakahlia";"El-Mansoura : talkha - Nile street .nile tower";"";"Dentistry";0;0;0;0;0;0;0;0;0
+147;"Ahmed Abdallah Badr";"";"";"";"";"10 Minutes";100;"El-Dakahlia";"El-Mansoura : Hay El Gamaa Gehahan St";"";"Dentistry";0;0;0;0;0;0;0;0;0
+148;"Dr Mostafa Fawzy";"";"";"";"";"10 Minutes";100;"El-Dakahlia";"El-Mansoura : Bank Masr";"";"Dentistry";0;0;0;0;0;0;0;0;0
+149;"Tasneem Ahmed Eldiarby";"";"";"";"";"9 Minutes";100;"El-Dakahlia";"El-Mansoura : hussen bek street";"";"Dentistry";0;0;0;0;0;0;0;0;0
+150;"Ahmed Nour Eldin";"";"";"";"";"10 Minutes";100;"El-Dakahlia";"El-Mansoura : 6 october street coming";"";"Dentistry";0;0;0;0;0;0;0;0;0
+151;"white dental clinics";"";"";"";"";"3 Minutes";100;"El-Dakahlia";"El-Mansoura : samia el gaml street";"";"Dentistry";0;0;0;0;0;0;0;0;0
+152;"Ahmed Elsaed";"";"";"";"";"5 Minutes";150;"El-Dakahlia";"El-Mansoura : ahmed maher street";"";"Dentistry";0;0;0;0;0;0;0;0;0
+153;"Ibrahim Abdallah Elafify";"";"";"";"";"33 Minutes";200;"qalyubia";"Banha : In front of the entrance to the outpatient clinics of Benha Teaching Hospital";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+154;"Abdelmohsen Elmenshawy";"";"";"";"";"18 Minutes";125;"qalyubia";"Banha : gamal abdel naser street";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+155;"Ahmed Abo Saif";"";"";"";"";"28 Minutes";260;"qalyubia";"Banha : Buildings east of the stadium";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+156;"Marwa Magdy";"";"";"";"";"Unknown";50;"qalyubia";"Shibin Al Qanater : toukh -port said";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+157;"ElSayed Mohamed AbdElwahab";"";"";"";"";"50 Minutes";250;"gharbia";"Mahalla : bahr st.";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+158;"mohamed taha";"";"";"";"";"29 Minutes";150;"gharbia";"Mahalla : talat harab station";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+159;"Mohamed Samy Haggag";"";"";"";"";"Unknown";180;"gharbia";"Tanta : (Saad zaghlol st )elmodarya from omar zafaan";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+160;"Hend Aref";"";"";"";"";"27 Minutes";160;"gharbia";"Tanta : shoman street";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+161;"Moustafa Abdelmoamen";"";"";"";"";"2 Minutes";160;"gharbia";"Tanta : Elgalaa street";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+162;"Ola Othman";"";"";"";"";"14 Minutes";120;"gharbia";"Kafr El Zayat : in front of the hospital";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+163;"Dawlat Nasr Abo fayed";"";"";"";"";"14 Minutes";210;"gharbia";"Samannoud : nahas square";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+164;"Ayat Farouk";"";"";"";"";"1 Hour and 7 Minutes";150;"gharbia";"Tanta : Elnahas street cross Kafr essam";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+165;"Alawi Hamed Abo elnour";"";"";"";"";"Unknown";175;"gharbia";"Tanta : ELborsa from Elsaa square Elshahawy Mall";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+166;"Dalia Mustafa";"";"";"";"";"Unknown";200;"gharbia";"Tanta : Loqman Alhakim stree";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+167;"Eman Helal";"";"";"";"";"41 Minutes";130;"Menoufia";"Shibin El-Kom : fayros building-Medan Sharaf";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+168;"hend emara";"";"";"";"";"20 Minutes";130;"Menoufia";"Shibin El-Kom : sharaf sqaure";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+169;"Nourham Kamal";"";"";"";"";"1 Hour and 14 Minutes";300;"Menoufia";"Shibin El-Kom : gamal abdelnasser";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+170;"Mohamed El Deeb";"";"";"";"";"19 Minutes";200;"Menoufia";"Shibin El-Kom : el amin street";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+171;"afaf zein";"";"";"";"";"43 Minutes";220;"Menoufia";"Shibin El-Kom : sharaf square";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+172;"osama mahmoud";"";"";"";"";"Unknown";250;"Menoufia";"Shibin El-Kom : mostashfa al rehab";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+173;"ahmed nabil ramdan";"";"";"";"";"2 Hours and 46 Minutes";75;"Menoufia";"Shibin El-Kom : sharaf square dewan tower";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+174;"Mohammed Mohammed Abd El Fattah Elkhosht";"";"";"";"";"21 Minutes";100;"Fayoum";"El-Fayoum city : infront of hassouna restaurant";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+175;"Amal Attwa";"";"";"";"";"51 Minutes";450;"El-Dakahlia";"El-Mansoura : between station square and hekma hospital";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+176;"Mahmoud ELWASIFY";"";"";"";"";"3 Hours and 2 Minutes";500;"El-Dakahlia";"El-Mansoura : elmahata square";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+177;"Alaa Sobhy";"";"";"";"";"18 Minutes";150;"El-Dakahlia";"El-Mansoura : ahmed maher street";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+178;"Mohamed Elwasify";"";"";"";"";"1 Hour and 8 Minutes";320;"El-Dakahlia";"El-Mansoura : Mit Hader";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+179;"Noha Hagag Amin";"";"";"";"";"1 Hour and 6 Minutes";110;"El-Dakahlia";"Mit Ghamr : El gesh street el nile tower";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+180;"Ayman Sabry";"";"";"";"";"2 Minutes";170;"El-Dakahlia";"Dekernes : Mgls elmadena";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+181;"Mostafa Elsabban";"";"";"";"";"42 Minutes";200;"El-Dakahlia";"El-Mansoura : .";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+182;"Mahmoud Yehia";"";"";"";"";"7 Minutes";150;"El-Dakahlia";"El Senbellawein : el hawal";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+183;"maha bourham";"";"";"";"";"2 Hours and 52 Minutes";220;"El-Dakahlia";"El-Mansoura : gihan street";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+184;"Mohamed Mitwally";"";"";"";"";"35 Minutes";250;"El-Dakahlia";"El-Mansoura : Hussein bek street in front of family regulation office";"";"Psychiatry";0;0;0;0;0;0;0;0;0
+185;"mohamed";"ayman";"mohammed-aymen";"$2a$12$e5LtJRCM9FK1p26wD3GiaunObYgghfln7LPU1rs0nhF1Y8dkJ/CfK";"20osama_sherif@ymail.com";"30";200;"alexandria";"Montzahh";"1969-09-09";"optomology";0;0;0;0;0;0;0;0;0

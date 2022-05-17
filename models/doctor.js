@@ -42,9 +42,6 @@ const Sequelize  = require('sequelize') // require 3rd party lib
    },
    specialization:{
    type: Sequelize.STRING
-   },
-   age:{
-   type: Sequelize.INTEGER
    },catgs_Clinic: {
     type: Sequelize.TINYINT,
     defaultValue: 0
