@@ -1,31 +1,29 @@
 # Introduction 
-We introduce **YASHFY Intelligent Healthcare System**, a health care application that makes both the doctor’s and patient’s life easier.
+We introduce **Web Server for YASHFY Intelligent Healthcare System**, a health care application that makes both the doctor’s and patient’s life easier.
 
-# YASHFY-API
+# YASHFY- REST-API
 **REST API** for intelligent healthcare system made in **Node.Js & Express & Sequelize(mysql)**, 
 - Implemnting both server side validation and authentication
 - Encrypting passwords in our Mysql database
+- Using Sequelize ORM
 
 ## *EndPoints*
 ### Doctor
-- **sign-up doctor**: 
-  URL: PUT [/auth/doctor-signup?addQualification=(true)]
-  
-- **log-in docto**r:
-  URL: POST [/auth/doctor-login]
-  
-- **add Qulaification(s) to doctor** [Auth is needed]
-  URL:  POST [/doctors/add-qualification]
-  
-- **getSingleDoctor** [DO NOT Need Auth] | we can make at start a guest auth vaild forever stacked with Front
-  URL:  GET[/doctors/:doctorId]
-  
+- **sign-up**
+- **log-in**
+- **add Qulaification(s) to doctor** 
+- **getSingleDoctor** and more ....
+
+check for **[Doctor Endpoints Manuel](https://github.com/MohammedAimanHESSin/YASHFY-API/blob/master/Doctors-Endpoints-Manual.txt)** for details  
+
 ### Patient
--
--
--
--
-  
+- **sign-up**   
+- **log-in**
+- **add insurance** 
+- **patient-profile** and more ....
+
+check for **[Patient Endpoints Manuel](https://github.com/MohammedAimanHESSin/YASHFY-API/blob/master/Doctors-Endpoints-Manual.txt)** for details  
+
 ## *Database Design*
 
 ![This is an image](https://github.com/MohammedAimanHESSin/YASHFY-API/blob/master/Database-Files/Relational_model.png)
@@ -37,12 +35,16 @@ You can run the API locally on your machine by following below steps:
 3. Open terminal in the project path ```cd /...../YASHFY-API```.
 4. run command: ```npm install``` to inastall all appropriate dependencies.
 5. You should now install mysql database workbench to handel DB requests and load on it our data.
-6. Last thing to run command: ```npm npm run start:dev```, and now your server is running and listenning on port [8080]. (you can change the port num from app.js file)
+6. Last thing to run command: ```npm run start:dev```, and now your server is running and listenning on port [8080]. (you can change the port num from app.js file)
   
+## Live Demo 
+   **[Yashfy API](https://test-api-yashfy.herokuapp.com)**
 
 ## *Authors*
 - **[Moahmmed Aiman](https://github.com/MohammedAimanHESSin)**
 - **[Zeyad Nasrat](https://github.com/ZozNasrat)**
+
+
 
 ---
 _This README made with ❤️ by [Moahmmed Aiman](https://github.com/MohammedAimanHESSin)_
