@@ -38,7 +38,7 @@ You can run the API locally on your machine by following below steps:
 6. Last thing to run command: ```npm run start:dev```, and now your server is running and listenning on port [8080]. (you can change the port num from app.js file)
   
 ## Live Demo 
-   **[Yashfy APP](https://test-api-yashfy.herokuapp.com)**
+   **[Yashfy API](https://test-api-yashfy.herokuapp.com)**
 
 ## *Authors*
 - **[Moahmmed Aiman](https://github.com/MohammedAimanHESSin)**
