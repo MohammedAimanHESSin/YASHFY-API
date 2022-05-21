@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const Appointment = require("../models/appointment");
 const Doctor = require('../models/doctor');
+const Doctor_available_slot = require('../models/doctor_available_slot');
 const Patient = require("../models/patient");
 
 
@@ -124,12 +125,19 @@ exports.bookAppointment = async (req, res, next) => {
     const start_time = req.body.start_time;
     const day_of_week = req.body.day_of_week;
     const doctor_id = req.body.doctor_id
+    const slotId =  req.body.slotId;
     const patientId = req.userId;
    try{
+
    const selectedPatient = await  Patient.findByPk(patientId)
    if (!selectedPatient) {
     return res.status(404).json({message: 'Could not find patient'});
-  }
+    }
+    let bookedSlot = await Doctor_available_slot.findByPk(slotId)
+    if (!bookedSlot) {
+      return res.status(404).json({message: 'eroor slot'});
+    }
+
    const appointment = await selectedPatient.createAppointment(
      {
     start_time: start_time,
@@ -138,9 +146,17 @@ exports.bookAppointment = async (req, res, next) => {
     appointmentStatusId: 1
      });
 
-   if (!appointment) {
-    return res.status(404).json({message: 'Could not add appointment!'});
-  }           
+    if (!appointment) {
+      return res.status(404).json({message: 'Could not add appointment!'});
+    }     
+     
+  
+    // set this slot in doctor to be un-availbale
+
+    bookedSlot.is_available = 0
+    bookedSlot = await bookedSlot.save(); 
+
+
   res.status(200).json({ message: "Appointment Added Successfully !"});
     }
     catch(err)
@@ -211,7 +227,7 @@ exports.patientLogin = async (req, res, next) => {
       userId: searchedPatient.id
     },
     'yashfy-secret-key',
-    { expiresIn: '1h' }
+   /* { expiresIn: '1h' }*/
   );
   res.status(200).json(
     { token: createdToken, userId: searchedPatient.id });
@@ -287,14 +303,6 @@ exports.makeReview = async (req,res,next)=> {
         doctorId:  doctorId
       })
 
-      /*const retrivedReview = await sequelize.query(
-        'SELECT R.id,R.review,R.is_review_annoymous,     FROM DOCTOR D join REVIEW R on DOCTOR.id = Review.doctorId', {
-        model: Doctor,
-        mapToModel: true ,// pass true here if you have any mapped fields,
-        replacements:{ specializationParam: specializationParam, regionParam: regionParam , cityParam : cityParam },
-        type: QueryTypes.SELECT
-      });*/
-    
 
       /* // ** CALL ML API TO Assigne polarities and update Doctor Categories !
       const selectedDoctor = await Doctor.findByPk(doctorId)

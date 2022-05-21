@@ -129,18 +129,23 @@ exports.getInsurances = async (req, res, next) => {
 exports.getDoctorAvailableSlots = async (req, res, next) => {
   const doctorId = parseInt(req.params.doctorId);
   try {
-    const doctor = await Doctor.findByPk(doctorId);
-          if(!doctor){
+    //const doctor = await Doctor.findByPk(doctorId);
+         /* if(!doctor){
             return res.status(404).json({message: "Could not find such doctor!"});
-            }
-    const slots = await doctor.getDoctor_available_slots();      
-          if(!slots.length){
-            return res.status(404).json({message: "No available slots for this doctor"})
-            }
-          res.status(200).json({
-              message: "Available Slots:",
-              slots: slots
+            }*/
+    //const slots = await doctor.getDoctor_available_slots();      
+          
+    const retrivedSlots= await sequelize.query(
+              'SELECT S.* , TIME_FORMAT(TIME(S.start_time),"%h:%i %p") as time FROM Doctors D join doctor_available_slots S on D.id = S.doctorId ', {
+              type: QueryTypes.SELECT
             })
+            if(!retrivedSlots.length){
+              return res.status(404).json({message: "No available slots for this doctor"})
+              }
+            res.status(200).json({
+                message: "Available Slots:",
+                slots: retrivedSlots
+              })
     }      
     catch(err)
     {

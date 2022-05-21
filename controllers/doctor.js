@@ -133,7 +133,7 @@ exports.login = async (req, res, next) => {
       userId: searchedDoctor.id
     },
     'yashfy-secret-key',
-    { expiresIn: '1h' }
+   /* { expiresIn: '1h' }*/
   );
   res.status(200).json(
     { token: createdToken, userId: searchedDoctor.id });
