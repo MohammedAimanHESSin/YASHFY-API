@@ -11,7 +11,7 @@ const Insurance = sequelize.define('insurance', {
       primaryKey: true
     },
     insurance_name : Sequelize.STRING 
-} 
+} , { timestamps: false }
 );
 
 module.exports = Insurance;

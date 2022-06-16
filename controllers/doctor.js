@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 const Doctor = require('../models/doctor');
 const Qualification = require('../models/qualification')
 const Hospital = require('../models/hospital');
-const Doctor_phone_number = require('../models/doctor_phone_number');
 const Appointment = require('../models/appointment');
 const Doctor_available_slot = require('../models/doctor_available_slot');
 
@@ -32,6 +31,8 @@ exports.signup =async (req, res, next) => {
     const date_of_birth = req.body.date_of_birth;
     const specialization = req.body.specialization;
     const hospital_id = req.body.hospital_id;
+    const phone_number = req.body.phone_number;
+
    
     try{
       //create doctor
@@ -76,19 +77,23 @@ exports.signup =async (req, res, next) => {
               })
               qualificationsList.push(createdQualification)
           }
-      let finalDoctorInfo= await createdDoctor.addQualifications(qualificationsList)        
+      let finalDoctorInfo= await createdDoctor.addQualifications(qualificationsList)  
+            
       // add Hospital to the doctor if attached
-      if (req.query.addHospital === "true")
-      {
+     
           const hospital_id = parseInt(req.body.hospital_id)
           const searchedHospital = await Hospital.findOne({
             where: {
               id: hospital_id
             }
           });
+          if (searchedHospital) {
+            finalDoctorInfo = await finalDoctorInfo.setHospital(searchedHospital)
+          }
       
-         finalDoctorInfo= await finalDoctorInfo.setHospital(searchedHospital)
-        }
+        
+
+
      // send back done response
     res.status(201).json({ message: 'Doctor created!', doctor_id: finalDoctorInfo.id });
         }

@@ -15,11 +15,14 @@ exports.getDoctor = async (req, res, next) => {
       { where: {id: doctorId} })
   
     if (!selectedDoctor) {
-      const error = new Error('Could not find Doctor.');
-      error.statusCode = 404;
-      throw error;
+      res.status(404).json({ message: 'Could not find Doctor.' });
     }
-    res.status(200).json({ message: 'Doctor fetched.', doctor: selectedDoctor });
+
+    const hospital = await Hospital.findOne(
+      { where: {id: selectedDoctor.hospitalId} })
+  
+
+    res.status(200).json({ message: 'Doctor fetched.', doctor: selectedDoctor ,hospital_name:hospital.hospital_name });
     }
     catch(err)
     {
@@ -60,7 +63,8 @@ exports.getDoctors = async (req, res, next) =>{
   let specializationParam =null
   let regionParam = null
   let cityParam = null
-
+  let limit = 20
+  console.log(req.query)
   // Taken from request
   let tempspecializationParam = req.query.specialization
   let tempregionParam = req.query.region
@@ -71,7 +75,7 @@ exports.getDoctors = async (req, res, next) =>{
     specializationParam = tempspecializationParam
   }
   if(tempregionParam){
-    regionParam = tempregionParam
+    regionParam = tempregionParam + "%"
   }
   if(tempcityParam){
     cityParam = tempcityParam
@@ -79,10 +83,10 @@ exports.getDoctors = async (req, res, next) =>{
 
   try{
 const fetchedDoctors = await sequelize.query(
-    'SELECT * FROM doctors WHERE specialization = (CASE WHEN :specializationParam IS NOT NULL THEN :specializationParam ELSE specialization END) AND region =  (CASE WHEN :regionParam IS NOT NULL THEN :regionParam ELSE region END) AND city =  (CASE WHEN :cityParam IS NOT NULL THEN :cityParam ELSE city END)', {
+    'SELECT * FROM doctors WHERE specialization = (CASE WHEN :specializationParam IS NOT NULL THEN :specializationParam ELSE specialization END) AND region like (CASE WHEN :regionParam IS NOT NULL THEN :regionParam ELSE region END) AND city =  (CASE WHEN :cityParam IS NOT NULL THEN :cityParam ELSE city END) LIMIT :limit', {
     model: Doctor,
     mapToModel: true ,// pass true here if you have any mapped fields,
-    replacements:{ specializationParam: specializationParam, regionParam: regionParam , cityParam : cityParam },
+    replacements:{ specializationParam: specializationParam, regionParam: regionParam , cityParam : cityParam , limit: limit },
     type: QueryTypes.SELECT
   });
 
@@ -136,8 +140,9 @@ exports.getDoctorAvailableSlots = async (req, res, next) => {
     //const slots = await doctor.getDoctor_available_slots();      
           
     const retrivedSlots= await sequelize.query(
-              'SELECT S.* , TIME_FORMAT(TIME(S.start_time),"%h:%i %p") as time FROM Doctors D join doctor_available_slots S on D.id = S.doctorId ', {
-              type: QueryTypes.SELECT
+              'SELECT S.* , TIME_FORMAT(TIME(S.start_time),"%h:%i %p") as time FROM Doctors D join doctor_available_slots S on D.id = S.doctorId  where S.doctorId  = :docId ', {
+              type: QueryTypes.SELECT,
+              replacements:{ docId: doctorId}
             })
             if(!retrivedSlots.length){
               return res.status(404).json({message: "No available slots for this doctor"})

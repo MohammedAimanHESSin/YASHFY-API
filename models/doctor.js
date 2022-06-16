@@ -12,6 +12,10 @@ const Sequelize  = require('sequelize') // require 3rd party lib
    first_name:{
    type: Sequelize.STRING
    },
+   phone_num:{
+    type: Sequelize.STRING
+    },
+
    last_name:{
    type: Sequelize.STRING
    },

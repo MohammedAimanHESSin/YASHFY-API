@@ -14,7 +14,6 @@ const patientAuthRoutes = require('./routes/patientAuth');
 const Doctor = require('./models/doctor');
 const Qualification = require('./models/qualification');
 const Hospital = require('./models/hospital');
-const Doctor_phone_number = require('./models/doctor_phone_number');
 const Patient = require('./models/patient');
 const Appointment = require('./models/appointment');
 const AppointmentStatus = require('./models/appointment_status');
@@ -30,8 +29,8 @@ Doctor.hasMany(Qualification);
 Doctor.belongsTo(Hospital, { constraints: true});
 Hospital.hasMany(Doctor);
 
-Doctor_phone_number.belongsTo(Doctor, { constraints: true,  onDelete: 'CASCADE' });
-Doctor.hasMany(Doctor_phone_number);
+Patient.belongsTo(Insurance, { constraints: true});
+Insurance.hasMany(Patient);
 
 Patient.hasMany(Appointment);
 Appointment.belongsTo(Patient);

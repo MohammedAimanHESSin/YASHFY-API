@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const Appointment = require("../models/appointment");
 const Doctor = require('../models/doctor');
 const Doctor_available_slot = require('../models/doctor_available_slot');
+const Hospital = require('../models/hospital');
+const Insurance = require('../models/insurance');
 const Patient = require("../models/patient");
 
 
@@ -19,10 +21,17 @@ exports.addPatient = async (req, res, next) => {
     const street_address = req.body.street_address;
     const city = req.body.city;
     const country = req.body.country;
+    const insurance_id = req.body.insurance_id ;
 
     //Add in DB
   try {
     const hashedPw = await bcrypt.hash(password, 12);
+
+    const selectedInsurance = await  Insurance.findByPk(insurance_id)
+    if (!selectedInsurance) {
+     return res.status(404).json({message: 'No Such Insurance'});
+     }
+
     const added_patient = await Patient.create({
                                         username: username,
                                         email: email,
@@ -34,7 +43,8 @@ exports.addPatient = async (req, res, next) => {
                                         age: age,
                                         street_address: street_address,
                                         city: city,
-                                        country: country
+                                        country: country,
+                                        insuranceId: insurance_id
                                     })
 
         if (!added_patient) {
