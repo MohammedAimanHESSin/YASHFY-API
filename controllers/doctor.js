@@ -9,6 +9,11 @@ const Hospital = require('../models/hospital');
 const Appointment = require('../models/appointment');
 const Doctor_available_slot = require('../models/doctor_available_slot');
 
+//Sequlize Lib
+const { QueryTypes } = require('sequelize');
+const sequelize = require('../util/database') // require initiated the connection
+
+
 exports.signup =async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty())  //need to throw err properly <DONE!>
@@ -293,16 +298,16 @@ exports.addPhoneNumber = async (req, res, next) => {
 exports.getDoctorAppointments = async (req, res, next)=>{
   try{
     const doctor_id = parseInt(req.userId)
-    selectedDoctor = await Doctor.findByPk(doctor_id)
-    if (!selectedDoctor) {
-      return res.status(404).json({message: 'Could not find doctor.'});
+    const doctroAppointments= await sequelize.query(
+      'SELECT Appstatus.states ,Concat(P.first_name," ",P.last_name) as patient_name, App.* , TIME_FORMAT(TIME(App.start_time),"%h:%i %p") as time FROM doctors D join appointments App on D.id = App.doctorId join patients P on App.patientId = P.id join  appointment_statuses as Appstatus on Appstatus.id =App.appointmentStatusId  where App.doctorId  = :docId ', {
+      type: QueryTypes.SELECT,
+      replacements:{ docId: doctor_id}
+    })
+
+    if(!doctroAppointments.length){
+    return res.status(404).json({message: "No appointments for this doctor"})
     }
-    doctroAppointments = await selectedDoctor.getAppointments()
-    if (!doctroAppointments.length) {
-      const error = new Error('No Appointments is found.');
-      error.statusCode = 404;
-      throw error;
-    }
+
     res.status(200).json({ message: 'Appointments fetched.', appointments: doctroAppointments });
   }
   catch(err)
@@ -337,6 +342,14 @@ exports.cancelDoctorAppointment = async (req, res, next)=>{
         }
     )
     await selectedAppointment.save()
+
+    let bookedSlot = await Doctor_available_slot.findByPk(selectedAppointment.doctorAvailableSlotId)
+    if (!bookedSlot) {
+      return res.status(404).json({message: 'eroor slot'});
+    }
+
+    bookedSlot.is_available = 1
+    bookedSlot = await bookedSlot.save(); 
 
     // await notify patient (webSocket)
 

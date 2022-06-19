@@ -53,6 +53,9 @@ Doctor_available_slot.belongsTo(Doctor);
 Doctor.belongsToMany(Insurance, { through:DoctorInsurance });
 Insurance.belongsToMany(Doctor, { through:DoctorInsurance });
 
+Appointment.belongsTo(Doctor_available_slot);
+Doctor_available_slot.hasMany(Appointment);
+
 //Handling routes
 const app = express();
 app.use(bodyParser.json()); // application/json

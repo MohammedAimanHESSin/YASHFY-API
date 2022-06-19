@@ -8,6 +8,10 @@ const Hospital = require('../models/hospital');
 const Insurance = require('../models/insurance');
 const Patient = require("../models/patient");
 
+//Sequlize Lib
+const { QueryTypes } = require('sequelize');
+const sequelize = require('../util/database') // require initiated the connection
+
 
 exports.addPatient = async (req, res, next) => {
     const username = req.body.username;
@@ -132,8 +136,6 @@ exports.updateProfile = async (req, res, next) => {
 };
 
 exports.bookAppointment = async (req, res, next) => {
-    const start_time = req.body.start_time;
-    const day_of_week = req.body.day_of_week;
     const doctor_id = req.body.doctor_id
     const slotId =  req.body.slotId;
     const patientId = req.userId;
@@ -150,10 +152,11 @@ exports.bookAppointment = async (req, res, next) => {
 
    const appointment = await selectedPatient.createAppointment(
      {
-    start_time: start_time,
-    day_of_week:  day_of_week,
+    start_time: bookedSlot.start_time,
+    day_of_week:  bookedSlot.day_of_week,
     doctorId: doctor_id,
-    appointmentStatusId: 1
+    appointmentStatusId: 1,
+    doctorAvailableSlotId: bookedSlot.id
      });
 
     if (!appointment) {
@@ -183,20 +186,18 @@ exports.bookAppointment = async (req, res, next) => {
 exports.getAppointments = async (req, res, next) => {
     const patientId = req.userId;
 try {
-    const selected_patient = await Patient.findByPk(patientId);
-    if (!selected_patient) {
-      return res.status(404).json({message: 'Could not find patient'});
+
+  const patientAppointments= await sequelize.query(
+      'SELECT Appstatus.states ,Concat(D.first_name," ",D.last_name) as doctor_name, App.* , TIME_FORMAT(TIME(App.start_time),"%h:%i %p") as time FROM appointments App join patients P on App.patientId = P.id join  appointment_statuses as Appstatus on Appstatus.id =App.appointmentStatusId join doctors D on App.doctorId = D.id  where App.patientId  = :patientId ', {
+      type: QueryTypes.SELECT,
+      replacements:{ patientId: patientId}
+    })
+
+    if(!patientAppointments.length){
+    return res.status(404).json({message: "No appointments for this doctor"})
     }
 
-    const selected_appointments = await  selected_patient.getAppointments(); 
-    if (!selected_appointments.length) {
-      return res.status(404).json({message: 'No appointments found'});
-    }
-           
-    res.status(200).json({
-                   message: "Patient Appointments",
-                   appointments: selected_appointments
-               })
+    res.status(200).json({ message: 'Appointments fetched.', appointments: patientAppointments });
  }
           
 catch(err)
@@ -258,7 +259,6 @@ exports.cancelPatientAppointment = async (req, res, next)=>{
     try{
       const patientID = parseInt(req.userId)
       const AppointmentId = parseInt(req.body.AppointmentId)
-  
       selectedAppointment = await Appointment.findByPk(AppointmentId)
   
       if (!selectedAppointment) {
@@ -266,15 +266,25 @@ exports.cancelPatientAppointment = async (req, res, next)=>{
       }
       
       if (selectedAppointment.patientId !== patientID ) {
+   
         return res.status(404).json({message: 'Invalid selected Appointment.'});
       }
       // WHAT IF ALREADY CANCELD ***
+      
       selectedAppointment.set(
           {
             appointmentStatusId: 3 //Canceled 
           }
       )
       await selectedAppointment.save()
+
+      let bookedSlot = await Doctor_available_slot.findByPk(selectedAppointment.doctorAvailableSlotId)
+      if (!bookedSlot) {
+        return res.status(404).json({message: 'eroor slot'});
+      }
+
+      bookedSlot.is_available = 1
+      bookedSlot = await bookedSlot.save(); 
   
       // MUST ADDD await notify patient (webSocket)***
   

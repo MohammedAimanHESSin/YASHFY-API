@@ -11,7 +11,7 @@ const AppointmentStatus = sequelize.define('appointment_status', {
     },
     states: {
       type: Sequelize.ENUM,
-      values: ['active', 'complete', 'canceled']
+      values: ['Upcoming', 'Completed', 'Canceled']
     } } ,{ timestamps: false });
 
 module.exports = AppointmentStatus;

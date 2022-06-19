@@ -133,24 +133,19 @@ exports.getInsurances = async (req, res, next) => {
 exports.getDoctorAvailableSlots = async (req, res, next) => {
   const doctorId = parseInt(req.params.doctorId);
   try {
-    //const doctor = await Doctor.findByPk(doctorId);
-         /* if(!doctor){
-            return res.status(404).json({message: "Could not find such doctor!"});
-            }*/
-    //const slots = await doctor.getDoctor_available_slots();      
-          
+
     const retrivedSlots= await sequelize.query(
-              'SELECT S.* , TIME_FORMAT(TIME(S.start_time),"%h:%i %p") as time FROM Doctors D join doctor_available_slots S on D.id = S.doctorId  where S.doctorId  = :docId ', {
+              'SELECT S.* , TIME_FORMAT(TIME(S.start_time),"%h:%i %p") as time FROM doctors D join doctor_available_slots S on D.id = S.doctorId  where S.doctorId  = :docId ', {
               type: QueryTypes.SELECT,
               replacements:{ docId: doctorId}
             })
-            if(!retrivedSlots.length){
-              return res.status(404).json({message: "No available slots for this doctor"})
-              }
-            res.status(200).json({
-                message: "Available Slots:",
-                slots: retrivedSlots
-              })
+    if(!retrivedSlots.length){
+      return res.status(404).json({message: "No available slots for this doctor"})
+      }
+    res.status(200).json({
+        message: "Available Slots:",
+        slots: retrivedSlots
+      })
     }      
     catch(err)
     {
@@ -173,7 +168,7 @@ exports.getDoctorReviews = async (req, res, next) => {
             }
 
      const retrivedReviews = await sequelize.query(
-        'SELECT R.id, R.review, R.is_review_annoymous, DATE_FORMAT(DATE(R.createdAt), "%d %M %Y") as date, TIME_FORMAT(TIME(R.createdAt),"%h:%i %p") as time, Concat(p.first_name," ",p.last_name) as patient_name FROM Patients P join REVIEWs R on P.id = R.patientId where R.doctorId = :docId', {
+        'SELECT R.id, R.review, R.is_review_annoymous, DATE_FORMAT(DATE(R.createdAt), "%d %M %Y") as date, TIME_FORMAT(TIME(R.createdAt),"%h:%i %p") as time, Concat(P.first_name," ",P.last_name) as patient_name FROM patients P join reviews R on P.id = R.patientId where R.doctorId = :docId', {
         type: QueryTypes.SELECT,
         replacements:{ docId: doctorId}
       });

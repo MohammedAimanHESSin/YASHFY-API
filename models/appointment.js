@@ -15,7 +15,8 @@ const Appointment = sequelize.define('appointment', {
     day_of_week:{
       type: Sequelize.ENUM,
       values: ['Saturday', 'Sunday', 'Monday' ,'Tuesday','Wednesday','Thursday','Friday']
-    }  ,          
+    }  , 
+
 }
 ,{
   indexes: [
