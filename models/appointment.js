@@ -18,14 +18,15 @@ const Appointment = sequelize.define('appointment', {
     }  , 
 
 }
-,{
+,
+/*{
   indexes: [
       {
           unique: true,
           fields: ['start_time', 'day_of_week', 'doctorID']
       }
   ]
-}
+}*/
 
 
 );

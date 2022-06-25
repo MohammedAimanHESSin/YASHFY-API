@@ -98,8 +98,15 @@ exports.getProfile = async (req, res, next) => {
 
 exports.updateProfile = async (req, res, next) => {
     const patientId= req.userId;
-    const updatedFirstName = req.body.updated_first_name;
-    const updatedLastName = req.body.updated_last_name;
+    const updatedFirstName = req.body.first_name;
+    const updatedLastName = req.body.last_name;
+    const updatedCity = req.body.city;
+    const updatedCountry = req.body.country;
+    const updatedPhoneNumber = req.body.phone_number;
+    const updatedDateOfBirth = req.body.date_of_birth;
+    const updatedInsuranceId = req.body.insurance_id;
+    const updatedStreetAddress = req.body.street_address;
+
 
   try {
     let selected_patient = await Patient.findByPk(patientId);
@@ -107,19 +114,19 @@ exports.updateProfile = async (req, res, next) => {
       return res.status(404).json({message: 'Could not find patient'});
     }
 
-    if(selected_patient.first_name === updatedFirstName && selected_patient.last_name === updatedLastName) {
-    return res.status(401).json({message: "Updated data is the same as the old ones!"});
-  }
-        selected_patient.first_name = updatedFirstName;
-        selected_patient.last_name = updatedLastName;
-        
-        selected_patient = await selected_patient.save(); 
-        if(!selected_patient) {
-         return res.status(404).json({message: 'Error saving updated data'});
-        }
-        
+    if(updatedFirstName)         selected_patient.first_name = updatedFirstName;
+    if(updatedLastName)         selected_patient.last_name = updatedLastName;
+    if(updatedCity)         selected_patient.city = updatedCity;
+    if(updatedCountry)         selected_patient.country = updatedCountry;
+    if(updatedPhoneNumber)         selected_patient.phone_number = updatedPhoneNumber;
+    if(updatedDateOfBirth)         selected_patient.date_of_birth = updatedDateOfBirth;
+    if(updatedInsuranceId)         selected_patient.insuranceId =  updatedInsuranceId;
+    if(updatedStreetAddress)         selected_patient.street_address =  updatedStreetAddress;
+
+    selected_patient = await selected_patient.save(); 
+
         res.status(200).json({
-                message: "Patient Updated!",
+                message: "Patient Updated Successfully!",
                 patient: selected_patient
             });
   }

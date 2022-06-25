@@ -9,7 +9,7 @@ const isAuth = require('../middleware/is-auth');
 
 router.get('/profile', isAuth, patientController.getProfile);
 
-router.patch('/profile', isAuth, patientController.updateProfile);
+router.patch('/edit-profile', isAuth, patientController.updateProfile);
 
 router.post('/bookAppointment', isAuth, patientController.bookAppointment);
 
